@@ -3,7 +3,7 @@ namespace Boxes {
     let color: string;
     let x: number = 0;
     let y: number = 0;
-
+debugger;
     for (let i: number = 0; i < n; i++) {
         y += (i == 2) ? 20 : 50;
         x = (x + 170) % 400;
