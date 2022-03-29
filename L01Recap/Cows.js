@@ -1,3 +1,10 @@
+var L02_Load;
+(function (L02_Load) {
+    document.addEventListener("load", DOMContentLoaded);
+    function DOMContentLoaded(_event) {
+        console.log(_event);
+    }
+})(L02_Load || (L02_Load = {}));
 var Cows;
 (function (Cows) {
     let nums = [2, 6, 5];

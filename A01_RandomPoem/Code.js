@@ -24,4 +24,5 @@ var RandomPoem;
         return verse;
     }
 })(RandomPoem || (RandomPoem = {}));
+/////with the help of @ronja.burger////siehe https://github.com/Ronja-Burger/EIA2/blob/main/01.1_Zufallsgedicht/RandomPoemScript.ts ////////
 //# sourceMappingURL=Code.js.map

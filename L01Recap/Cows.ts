@@ -1,3 +1,11 @@
+namespace L02_Load {
+    document.addEventListener("load", DOMContentLoaded);
+
+    function DOMContentLoaded(_event: Event): void {
+        console.log(_event);
+    }
+}
+
 namespace Cows {
     let nums: number[] = [2, 6, 5];
     let results: string[] = [];
