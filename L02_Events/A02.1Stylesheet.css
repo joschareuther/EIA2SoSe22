@@ -1,0 +1,35 @@
+body{
+    background-color: aliceblue;
+}
+header {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight:lighter;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.div01{
+    position: fixed;
+    top: 140px;
+    left: 450px;
+    width: 300px;
+    height: 500px;
+    background-color: azure;
+}
+.div02{
+    position: relative;
+    top: 170px;
+    left: 450px;
+    width: 200px;
+    height: 500px;
+    background-color: aqua;
+}
+.span{
+    position: absolute;
+    top: 170px;
+    left: 450px;
+    width: 700px;
+    height: 500px;
+    background-color: aquamarine;
+}
