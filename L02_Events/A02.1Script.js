@@ -16,11 +16,14 @@ var UIScribble;
         document.querySelector(".div2").addEventListener("keyup", logInfo);
     }
     function setInfobox(_event) {
-        //display mouse position and event's target in splan-element
-        console.log(_event.clientX);
+        let span = document.querySelector(".span");
+        //display mouse position and event's target in splan-element//
+        //set style attributes
+        span.style.top = _event.clientY + "px";
+        span.style.left = _event.clientX + "px";
     }
     function logInfo(_event) {
-        console.log("target");
+        console.log(MouseEvent, EventTarget, EventSource);
     }
 })(UIScribble || (UIScribble = {}));
 //# sourceMappingURL=A02.1Script.js.map

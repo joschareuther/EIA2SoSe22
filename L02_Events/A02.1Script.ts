@@ -17,11 +17,14 @@ namespace UIScribble {
     }
 
     function setInfobox(_event: MouseEvent): void {
-        //display mouse position and event's target in splan-element
-        console.log(_event.clientX);
+    let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector(".span");
+            //display mouse position and event's target in splan-element//
+            //set style attributes
+    span.style.top = _event.clientY + "px";
+    span.style.left =  _event.clientX + "px";
     }
 
     function logInfo(_event: Event): void {
-    console.log("target");
+    console.log(MouseEvent, EventTarget, EventSource);
     }
 }
