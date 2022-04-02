@@ -1,9 +1,11 @@
 var UIScribble;
 (function (UIScribble) {
     window.addEventListener("load", handleLoad);
+    var _xposition = _event.clientX;
+    var _yposition = _event.clientY;
     function handleLoad(_event) {
         //dokument-EventListener(Mousemove, Click, Keyup)//
-        document.addEventListener("mousemove", setInfobox);
+        document.addEventListener("mousemove", setInfobox, myFunction(_xposition, yposition));
         document.addEventListener("click", logInfo);
         document.addEventListener("keyup", logInfo);
         //body-EventListener(Mousemove, Click, Keyup)//
@@ -21,6 +23,10 @@ var UIScribble;
         //set style attributes
         span.style.top = _event.clientY + 10 + "px";
         span.style.left = _event.clientX + 6 + "px";
+    }
+    function myFunction(clientX, clientY) {
+        document.querySelector("#X-Position").innerHTML = clientX;
+        document.querySelector("#Y-Position").innerHTML = clientY;
     }
     function logInfo(_event) {
         console.log(MouseEvent, EventTarget, EventSource);
