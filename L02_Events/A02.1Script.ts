@@ -20,8 +20,8 @@ namespace UIScribble {
     let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector(".span");
             //display mouse position and event's target in splan-element//
             //set style attributes
-    span.style.top = _event.clientY + "px";
-    span.style.left =  _event.clientX + "px";
+    span.style.top = _event.clientY + 10 + "px";
+    span.style.left =  _event.clientX + 6 + "px";
     }
 
     function logInfo(_event: Event): void {
