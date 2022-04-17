@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Style.css">
+    <script src="Script.js"></script>
+    <title>Cocktail-Bar</title>
+</head>
+
+<body>
+    <header>
+        <h1>Cocktail-Bar</h1>
+        <p>Choose your drink, the container, the amount and the extras and check out!</p>
+    </header>
+    <form>
+        <div id="form">
+            <h2>Choose here</h2>
+            <fieldset>
+                <legend>Drink</legend>
+                <select name="Drink" id="drink">
+                    <option value="Mojito" price="30">Mojito</option>
+                    <option value="Virgin Mojito" price="25">Virgin Mojito</option>
+                    <option value="Moscow Mule" price="35">Moscow Mule</option>
+                    <option value="Sex on the Beach" price="30">Sex on the Beach</option>
+                    <option value="Caipi" price="40">Caipi</option>
+                    <option value="Tequila Sunrise" price="45">Tequile Sunrise</option>
+                </select>
+            </fieldset>
+            <hr />
+            <fieldset>
+                <legend>Container</legend>
+                <input type="radio" name="Radiogroup" value="slim" id="slim" price="0.30" checked />
+                <label for="slim">SlimCup</label>
+                <input type="radio" name="Radiogroup" value="large" id="large" price="0.50" />
+                <label for="large">LargeCup</label>
+                <input type="radio" name="Radiogroup" value="paper" id="paper" price="0.00" />
+                <label for="slim">PaperCup</label>
+                <input type="radio" name="Radiogroup" value="plastic" id="plastic" price="1.00" />
+                <label for="slim">PlasticCup</label>
+            </fieldset>
+            <hr />
+            <fieldset>
+                <legend>Amount</legend>
+                <span id="slider">
+                    <span>
+                        0.1L
+                        <input type="range" id="amount" name="Amount" min="0.1" max="1" step="0.1" value="0.3" />
+                        1.0L
+                    </span>
+                    <progress value="0.3" min="0.1" max="1"></progress>
+                </span>
+            </fieldset>
+            <hr />
+            <fieldset>
+                <legend>Extras</legend>
+                <input type="checkbox" name="Ice" value="check1" id="Ice" price="0.10">
+                <label for="check1">Ice</label>
+                <input type="checkbox" name="Lemon" value="check2" id="Lemon" price="0.50">
+                <label for="check2">Lemon</label>
+                <input type="checkbox" name="Orange" value="check3" id="Orange" price="0.50">
+                <label for="check3">Orange</label>
+                <input type="checkbox" name="Mint" value="check4" id="Mint" price="0.30">
+                <label for="check4">Mint</label>
+            </fieldset>
+        </div>
+    </form>
+    <div>
+        <h2 id="hello"> Your order </h2> 
+        <div id="checkout">
+            ...
+        </div>
+    </div>
+</body>
+
+</html>

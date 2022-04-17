@@ -9,6 +9,16 @@
 			],
 			"group": "build",
 			"label": "tsc: Erstellen – tsconfig.json"
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: Überwachen – tsconfig.json"
 		}
 	]
 }

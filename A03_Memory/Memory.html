@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory</title>
+    <script src="MemoryScript.js"></script>
+    <link rel="stylesheet" href="MemoryCSS.css" type="text/css" />
+</head>
+
+<body>
+    <h1>Memory</h1>
+    <form>
+        <div>
+            <fieldset>
+                <legend>Wie viele Kartenpaare möchtest du im Spiel?</legend>
+                <input type="number" name="Stepper" step="1" min="10" max="20" value="15" />
+            </fieldset>
+            <fieldset>
+                <legend>Welche Größe sollen die Karten haben?</legend>
+                <span id="slider">
+                    30px 
+                <input type="range" id="cardsize" name="CardSize" min="30" max="100" step="10" value="40" />
+                    100px
+                </span>
+            </fieldset>
+            <fieldset>
+                <legend>Welche Farbe sollen die Karten haben?</legend>
+                <input type="color" name="Color" placeholder="red" id="color" value="#ff0000">
+                <p>Hintergrundfarbe?</p><input type="color" name="BackgroundColor" placeholder="red"
+                    id="backgroundcolor" value="#ff0000">
+                <p>Schriftart?</p><input type="text" name="Datalist" list="options" placeholder="Schriftart" />
+                <datalist id="options">
+                    <option value="Arial"></option>
+                    <option value="Comic-Sans"></option>
+                    <option value="Courier"></option>
+                </datalist>
+            </fieldset>
+        </div>
+    </form>
+    <br>
+    <button type="button" id="Startbutton">Start</button>
+</body>
+
+</html>
