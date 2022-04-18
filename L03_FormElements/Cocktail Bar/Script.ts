@@ -1,8 +1,7 @@
-namespace L03_CocktailBar{
+namespace L03_CocktailBar {
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
-        console.log("Start");
         let form: HTMLDivElement = <HTMLDivElement>document.querySelector ("div#form");
         let slider: HTMLInputElement = <HTMLInputElement>document.querySelector("input#amount");
         form.addEventListener("change", handleChange);
@@ -28,9 +27,9 @@ namespace L03_CocktailBar{
             order.innerHTML += item.name + " € " + price;
     }
 
-    function displayAmount(_event:Event): void {
+    function displayAmount(_event: Event): void {
         let progress: HTMLProgressElement = <HTMLProgressElement>document.querySelector("progress");
         let amount: string =  (<HTMLInputElement>_event.target).value;
         progress.value = parseFloat(amount);
     }
-}
+}}

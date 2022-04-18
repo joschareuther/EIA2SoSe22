@@ -2,7 +2,6 @@ var L03_CocktailBar;
 (function (L03_CocktailBar) {
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
-        console.log("Start");
         let form = document.querySelector("div#form");
         let slider = document.querySelector("input#amount");
         form.addEventListener("change", handleChange);
