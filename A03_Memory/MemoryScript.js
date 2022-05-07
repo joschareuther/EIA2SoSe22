@@ -98,7 +98,7 @@ var Memory;
                                 let duration = endTimeStamp.getTime() - startTimeStamp.getTime();
                                 let minutes = Math.floor(duration / 60000);
                                 let secounds = Math.floor((duration % 60000) / 1000);
-                                alert("Du hast ein Paar gefunden! Dauer: " + minutes + "min " + secounds + "s");
+                                alert("Glückwunsch, du hast das Memory gelöst! Dauer: " + minutes + "min " + secounds + "s");
                             }
                         }
                         else {
