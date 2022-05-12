@@ -11,8 +11,8 @@ function handleLoad(_event: Event): void {
     drawMountains({ x: 0, y: horizon }, random(), random3(), "rgb(" + random() + ", " + random2() + ", " + random2() + ", " + random4() + ")", "darkgrey");
 
     drawCloud({ x: random2(), y: random2() }, { x: random3(), y: random3() });
-  
-    
+
+
 
     let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
     gradient.addColorStop(0, "rgb(" + random() + ", " + random2() + ", " + random2() + ", " + random4() + ")");
@@ -26,7 +26,7 @@ function handleLoad(_event: Event): void {
     crc2.fillRect(random(), random(), random(), random2());
 
     crc2.font = "30 px serif";
-    crc2.fillText("Hello world", random(), random());
+    crc2.fillText("Hello world", getRandom(20, 100), random(20, 100));
 
     crc2.beginPath();
     crc2.arc(random2(), random2(), random(), random(), 1.5 * Math.PI);
@@ -47,10 +47,9 @@ function handleLoad(_event: Event): void {
     crc2.closePath();
     crc2.stroke();
 
-    
+
 
     function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-        console.log("Mountains");
 
         let stepMin: number = 50;
         let stepMax: number = 100;
@@ -82,29 +81,25 @@ function handleLoad(_event: Event): void {
         crc2.restore();
     }
 
-    
+
 
     function random(): number {
         let randomNum: number = Math.floor(Math.random() * (100 - 20 + 1)) + 20;
-        console.log(randomNum);
         return randomNum;
     }
 
     function random2(): number {
         let randomNum2: number = Math.floor(Math.random() * (201 - 50 + 1)) + 50;
-        console.log(randomNum2);
         return randomNum2;
     }
 
     function random3(): number {
         let randomNum3: number = Math.floor(Math.random() * (401 - 100 + 1)) + 100;
-        console.log(randomNum3);
         return randomNum3;
     }
 
     function random4(): number {
         let randomNum6: number = (Math.random() * (1 - 0.1)) + 0.1;
-        console.log(randomNum6);
         return randomNum6;
     }
 
@@ -117,7 +112,7 @@ function handleLoad(_event: Event): void {
         let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
 
         particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradient.addColorStop(random4(),  "rgb(" + random() + ", " + random4() + ", " + random4() + ", " + random4() + ")");
+        gradient.addColorStop(random4(), "rgb(" + random() + ", " + random4() + ", " + random4() + ", " + random4() + ")");
         gradient.addColorStop(1, "rgb(" + random() + ", " + random2() + ", " + random2() + ", " + random4() + ")");
 
         crc2.save();
@@ -134,5 +129,11 @@ function handleLoad(_event: Event): void {
 
         }
         crc2.restore();
+    }
+    
+    function getRandom(_min: number, _max: number): number {
+        let random: number = Math.floor(Math.random() * (_max - _min + 1)) + _min;
+        console.log(random);
+        return random;
     }
 }

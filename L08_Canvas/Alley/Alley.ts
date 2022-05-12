@@ -2,7 +2,7 @@ namespace L08_Canvas_Alley {
     interface Vector {
         x: number;
         y: number;
-    }
+    } 
 
     window.addEventListener("load", handleLoad);
     let crc2: CanvasRenderingContext2D;

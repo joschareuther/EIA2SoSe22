@@ -15,7 +15,7 @@ function handleLoad(_event) {
     crc2.fillStyle = "rgb(" + random() + ", " + random2() + ", " + random2() + ", " + random4() + ")";
     crc2.fillRect(random(), random(), random(), random2());
     crc2.font = "30 px serif";
-    crc2.fillText("Hello world", random(), random());
+    crc2.fillText("Hello world", getRandom(20, 100), random(20, 100));
     crc2.beginPath();
     crc2.arc(random2(), random2(), random(), random(), 1.5 * Math.PI);
     crc2.moveTo(random3() + 100, random2());
@@ -33,7 +33,6 @@ function handleLoad(_event) {
     crc2.closePath();
     crc2.stroke();
     function drawMountains(_position, _min, _max, _colorLow, _colorHigh) {
-        console.log("Mountains");
         let stepMin = 50;
         let stepMax = 100;
         let x = 0;
@@ -58,22 +57,18 @@ function handleLoad(_event) {
     }
     function random() {
         let randomNum = Math.floor(Math.random() * (100 - 20 + 1)) + 20;
-        console.log(randomNum);
         return randomNum;
     }
     function random2() {
         let randomNum2 = Math.floor(Math.random() * (201 - 50 + 1)) + 50;
-        console.log(randomNum2);
         return randomNum2;
     }
     function random3() {
         let randomNum3 = Math.floor(Math.random() * (401 - 100 + 1)) + 100;
-        console.log(randomNum3);
         return randomNum3;
     }
     function random4() {
         let randomNum6 = (Math.random() * (1 - 0.1)) + 0.1;
-        console.log(randomNum6);
         return randomNum6;
     }
     function drawCloud(_position, _size) {
@@ -97,6 +92,11 @@ function handleLoad(_event) {
             crc2.restore();
         }
         crc2.restore();
+    }
+    function getRandom(_min, _max) {
+        let random = Math.floor(Math.random() * (_max - _min + 1)) + _min;
+        console.log(random);
+        return random;
     }
 }
 //# sourceMappingURL=GenerativeKunst.js.map

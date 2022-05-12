@@ -1,48 +1,101 @@
 window.addEventListener("load", handleLoad);
+
+// tslint:disable-next-line: no-any
+let circles: any = [];
+
 function handleLoad(_event: Event): void {
-    let canvas: HTMLCanvasElement = document.querySelector("canvas");
+    let canvas: HTMLCanvasElement = document.getElementById("canvas");
     let crc2: CanvasRenderingContext2D = canvas.getContext("2d");
 
-    canvas.height = innerHeight;
-    canvas.width = innerWidth;
-    crc2.fillStyle = "#FF2005";
-    
-    let horizon: number = 300;
-    drawMountains({ x: 0, y: horizon }, 100, 200, "darkgrey", "white");
-    drawMountains({ x: 0, y: horizon }, 70, 150, "grey", "darkgrey");
+    let height: number = canvas.height;
+    let width: number = canvas.width;
+}
+createCircle();
+function createCircle(): void {
+    let r: number = getRandom(20, 100);
+    console.log(r);
+    // tslint:disable-next-line: no-any
+    let newCircle: any = new Circle(
+        { x: getRandom(0 + r, canvas.width - r), y: getRandom(0 + r, canvas.height - r), radius: r });
+    circles.push(newCircle);
+}
+console.log(circles.length);
+function Circle({ x, y, radius }: { x: number; y: number; radius: number; }): void {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+    this.velocity = {
+        x: getRandom(-5, 5),
+        y: getRandom(-5, 5)
+    };
+    console.log(this.velocity.x);
 
-    function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-        console.log("Mountains");
+    this.circleUpdate = function (): void {
+        this.circleMove();
+        this.circleDraw();
+        this.cicleCollider();
+    };
 
-        let stepMin: number = 50;
-        let stepMax: number = 100;
-        let x: number = 0;
+    this.circleMove = function (): void {
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+    };
 
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-
+    this.circleDraw = function (): void {
         crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, -_max);
-        do {
-            x += stepMin + Math.random() * (stepMax - stepMin);
-            let y: number = -_min - Math.random() * (_max - _min);
+        crc2.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        crc2.strokeStyle = "red";
+        crc2.stroke();
+    };
 
-            crc2.lineTo(x, y);
-        } while (x < crc2.canvas.width);
+    this.cicleCollider = function (): void {
+        if (this.x + this.radius > width || this.x - this.radius < 0) {
+            this.velocity.x = -this.velocity.x;
+        }
 
-        crc2.lineTo(x, 0);
-        crc2.closePath();
+        if (this.y + this.radius > height || this.y - this.radius < 0) {
+            this.velocity.y = -this.velocity.y;
+        }
+    };
 
-        let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, -_max);
-        gradient.addColorStop(0, _colorLow);
-        gradient.addColorStop(0.9, _colorHigh);
+}
+draw();
 
-        crc2.fillStyle = gradient;
-        crc2.fill();
+function draw(): void {
+    crc2.clearRect(0, 0, canvas.width, canvas.height);
 
-        crc2.restore();
+    for (let i: number; i < circles.length; i++) {
+        circles[i].circleUpdate();
+        console.log(circles[i]);
     }
+
+    window.requestAnimationFrame(draw);
+}
+
+function getRandom(_min: number, _max: number): number {
+    return Math.floor(Math.random() * (_max - _min + 1) + _min);
 }
 
 
+
+//function drawCircle(): void {
+    console.log("Circle");
+    window.requestAnimationFrame(drawCircle);
+    crc2.clearRect(0, 0, width, height);
+    crc2.beginPath();
+    crc2.arc(x, y, radius, 0, Math.PI * 2, false);
+    crc2.strokeStyle = "Red";
+    crc2.stroke();
+
+    if (x + radius > width || x - radius < 0) {
+        dx = -dx;
+    }
+
+    if (y + radius > height || y - radius < 0) {
+        dy = -dy;
+    }
+
+
+    x += dx * 2;
+    y += dy;
+}
