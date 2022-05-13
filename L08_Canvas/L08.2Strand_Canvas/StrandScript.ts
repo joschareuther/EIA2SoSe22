@@ -26,7 +26,7 @@ namespace L08_Strand_Canvas {
         drawCloud({ x: 200, y: 70 }, { x: 100, y: 150 });
         drawSea();
         drawBeach({ x: width / 2 - 200, y: horizon }, 600, 100);
-        drawMountains({ x: 0, y: horizon }, 100, 200, "darkgrey", "white");
+        //drawMountains({ x: 0, y: horizon }, 100, 200, "darkgrey", "white");
         //drawVolcano();
         //drawSmoke();
         //adrawSchwimmeri();
