@@ -21,7 +21,7 @@ namespace L08_Strand_Canvas {
         let horizon: number = height * golden;
 
         drawBackground();
-        drawSun({ x: 250, y: 30});
+        drawSun({ x: 250, y: 30 });
         drawCloud({ x: 100, y: 50 }, { x: 70, y: 60 });
         drawCloud({ x: 200, y: 70 }, { x: 100, y: 150 });
         drawSea();
@@ -44,7 +44,7 @@ namespace L08_Strand_Canvas {
         gradient.addColorStop(golden, "white");
         gradient.addColorStop(1, "lightyellow");
 
-        
+
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, width, height);
     }
@@ -123,12 +123,5 @@ namespace L08_Strand_Canvas {
 
         crc2.fillStyle = gradient;
         crc2.fill();
-        }
-
-    function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-        console.log("Mountains");
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-
     }
 }

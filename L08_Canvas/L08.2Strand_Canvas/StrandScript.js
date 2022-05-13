@@ -94,10 +94,5 @@ var L08_Strand_Canvas;
         crc2.fillStyle = gradient;
         crc2.fill();
     }
-    function drawMountains(_position, _min, _max, _colorLow, _colorHigh) {
-        console.log("Mountains");
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-    }
 })(L08_Strand_Canvas || (L08_Strand_Canvas = {}));
 //# sourceMappingURL=StrandScript.js.map
