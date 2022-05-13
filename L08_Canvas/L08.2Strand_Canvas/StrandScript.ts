@@ -25,8 +25,8 @@ namespace L08_Strand_Canvas {
         drawCloud({ x: 100, y: 50 }, { x: 70, y: 60 });
         drawCloud({ x: 200, y: 70 }, { x: 100, y: 150 });
         drawSea();
-        drawBeach({x: width, y: horizon }, 500, 100);
-        //drawMountains({ x: 0, y: horizon }, 100, 200, "darkgrey", "white");
+        drawBeach({x: width / 2, y: horizon }, 100);
+        drawMountains({ x: 0, y: horizon }, 100, 200, "darkgrey", "white");
         //drawVolcano();
         //drawSmoke();
         //adrawSchwimmeri();
@@ -109,8 +109,27 @@ namespace L08_Strand_Canvas {
 
     }
 
-
-    function drawBeach(_position: Vector, _widthBack: number, _widthFront: number): void {
+    function drawBeach(_position: Vector, _widthFront: number): void {
         console.log("Beach");
+
+        crc2.beginPath();
+        crc2.moveTo(_position.x + 50, _position.y);
+        crc2.lineTo(_widthFront, height );
+        crc2.lineTo(0, height);
+        crc2.lineTo(0, _position.y);
+        crc2.closePath();
+
+        let gradient: CanvasGradient = crc2.createLinearGradient(0, _position.y, 0, height);
+        gradient.addColorStop(0, "brown");
+        gradient.addColorStop(0.6, "lightyellow");
+
+        crc2.fillStyle = gradient;
+        crc2.fill();
+    }
+
+    function drawMountains(): void {
+        console.log("Mountains");
+
+        
     }
 }
