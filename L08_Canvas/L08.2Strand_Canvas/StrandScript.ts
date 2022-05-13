@@ -65,6 +65,7 @@ namespace L08_Strand_Canvas {
         crc2.arc(0, 0, r2, 0, 2 * Math.PI);
         crc2.fill();
         crc2.restore();
+
     }
 
     function drawCloud(_position: Vector, _size: Vector): void {
@@ -118,7 +119,7 @@ namespace L08_Strand_Canvas {
         crc2.closePath();
 
         let gradient: CanvasGradient = crc2.createLinearGradient(0, _position.y, 0, crc2.canvas.height);
-        gradient.addColorStop(0, "beige");
+        gradient.addColorStop(0, "brown");
         gradient.addColorStop(0.6, "lightyellow");
 
         crc2.fillStyle = gradient;

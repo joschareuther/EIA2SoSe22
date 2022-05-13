@@ -89,7 +89,7 @@ var L08_Strand_Canvas;
         crc2.lineTo(_position.x - _widthBack / 2, _position.y);
         crc2.closePath();
         let gradient = crc2.createLinearGradient(0, _position.y, 0, crc2.canvas.height);
-        gradient.addColorStop(0, "beige");
+        gradient.addColorStop(0, "brown");
         gradient.addColorStop(0.6, "lightyellow");
         crc2.fillStyle = gradient;
         crc2.fill();
