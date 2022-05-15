@@ -28,10 +28,8 @@ var L08_Strand_Canvas;
         drawJellyfish();
         drawPalmos();
         drawPeople();
-        //adrawSchwimmeri();
-        //drawSurferi();
+        drawSurferi();
         //drawFishes();
-        //drawPeople();
     }
     function drawBackground() {
         console.log("Background");
@@ -301,7 +299,7 @@ var L08_Strand_Canvas;
         console.log("Menschi");
         let x;
         let y;
-        for (let nPeople = 0; nPeople < 4; nPeople++) {
+        for (let nPeople = 0; nPeople < 3; nPeople++) {
             crc2.fillStyle = "rgb(" + getRandom(10, 200) + ", " + getRandom(50, 200) + ", " + getRandom(50, 200) + ", " + 1 + ")";
             crc2.fillRect(x = getRandom(5, 160), y = getRandom(120, 140), 8, 10);
             crc2.beginPath();
@@ -310,6 +308,31 @@ var L08_Strand_Canvas;
             crc2.fill();
             crc2.beginPath();
             crc2.arc(x + 4, y - 2, 5, 0, Math.PI * 2, true);
+            crc2.fillStyle = "#3b1623";
+            crc2.fill();
+        }
+    }
+    function drawSurferi() {
+        console.log("Surferi");
+        let x;
+        let y;
+        for (let nPeople = 0; nPeople < 2; nPeople++) {
+            crc2.beginPath();
+            crc2.ellipse(x = getRandom(100, 160), y = getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
+            crc2.stroke();
+            crc2.fillStyle = "orange";
+            crc2.fill();
+            crc2.save();
+            crc2.translate(x, y);
+            crc2.restore();
+            crc2.fillStyle = "rgb(" + getRandom(10, 200) + ", " + getRandom(50, 200) + ", " + getRandom(50, 200) + ", " + 1 + ")";
+            crc2.fillRect(x - 4, y - 10, 8, 10);
+            crc2.beginPath();
+            crc2.arc(x - 16, y - 10, 15, Math.PI * 2, Math.PI * 1.7, true);
+            crc2.fillStyle = "white";
+            crc2.fill();
+            crc2.beginPath();
+            crc2.arc(x, y - 12, 5, 0, Math.PI * 2, true);
             crc2.fillStyle = "#3b1623";
             crc2.fill();
         }
