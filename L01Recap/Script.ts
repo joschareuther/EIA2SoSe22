@@ -37,7 +37,7 @@ console.log(a[2])
 let s = {"zahl": 7, "wahr": true, text: "Hallo"}
 s[4] = [101, 102]
 console.log(s);
-);
+)
 
 
 interface MapStringToBoolean {
@@ -52,12 +52,12 @@ interface VectorWithMeaning {
     meaning: string;
 }
 let vector: VectorWithMeaning = {x: 12.4, y: -7.2, meaning: "Ortsvektor"};
-console.log(vector)
+console.log(vector);
 
 interface Student {
     name: string;
     matrikel: number;
-    grades: [module: string]: number;
+    grades: [module: string]; : number;
 }
 let students: Student[] = [];
 

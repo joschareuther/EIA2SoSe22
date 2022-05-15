@@ -127,6 +127,7 @@ namespace L08_Canvas_Alley {
 
         crc2.fillStyle = gradient;
         crc2.fill();
+        
 
         crc2.restore();
     }

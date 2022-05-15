@@ -25,7 +25,6 @@ console.log(a[2]);
 let s = { "zahl": 7, "wahr": true, text: "Hallo" };
 s[4] = [101, 102];
 console.log(s);
-;
 let o = { "wert1": true, "wert2": false };
 console.log(o);
 let vector = { x: 12.4, y: -7.2, meaning: "Ortsvektor" };
