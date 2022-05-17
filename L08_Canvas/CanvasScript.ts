@@ -98,4 +98,4 @@ function getRandom(_min: number, _max: number): number {
 
     x += dx * 2;
     y += dy;
-}
+//}
