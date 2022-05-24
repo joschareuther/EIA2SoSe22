@@ -77,4 +77,5 @@ if (y + radius > height || y - radius < 0) {
 }
 x += dx * 2;
 y += dy;
+//}
 //# sourceMappingURL=CanvasScript.js.map
