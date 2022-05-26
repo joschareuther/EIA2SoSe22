@@ -1,5 +1,4 @@
 namespace OldMacDonaldsFarm {
-
     export let gras: number;
     export let corn: number;
     export let meat: number;
@@ -96,9 +95,6 @@ namespace OldMacDonaldsFarm {
         crc2.fillRect(80, 65, 8, 8);
         crc2.fillRect(95, 85, 8, 15);
 
-
-
-
         //Futtervorrat
         let grasstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("grasstorage");
         let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
@@ -150,5 +146,6 @@ namespace OldMacDonaldsFarm {
             applestorage.innerHTML = String(apple);
         }
 
+        
     }
 }
