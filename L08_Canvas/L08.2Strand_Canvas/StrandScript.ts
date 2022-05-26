@@ -299,15 +299,10 @@ namespace L08_Strand_Canvas {
 
         crc2.fillStyle = "lightgrey";
         crc2.fillRect(_position.x - 30, _position.y - 17, 3, 4);
-        crc2.fillStyle = "lightgrey";
         crc2.fillRect(_position.x, _position.y - 17, 3, 4);
-        crc2.fillStyle = "lightgrey";
         crc2.fillRect(_position.x - 25, _position.y - 17, 3, 4);
-        crc2.fillStyle = "lightgrey";
         crc2.fillRect(_position.x - 20, _position.y - 17, 3, 4);
-        crc2.fillStyle = "lightgrey";
         crc2.fillRect(_position.x - 15, _position.y - 17, 3, 4);
-        crc2.fillStyle = "lightgrey";
         crc2.fillRect(_position.x - 10, _position.y - 17, 3, 4);
 
         crc2.beginPath();

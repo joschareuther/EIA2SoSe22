@@ -1,1 +1,51 @@
+var OldMacDonaldsFarm;
+(function (OldMacDonaldsFarm) {
+    class Animal {
+        species = [];
+        food = [];
+        sound = [];
+        constructor(_species, _food, _sound) {
+            this.species = _species;
+            this.food = _food;
+            this.sound = _sound;
+        }
+        eat() {
+            switch (this.food) {
+                case "gras":
+                    OldMacDonaldsFarm.gras -= 1;
+                    if (OldMacDonaldsFarm.gras < 0) {
+                        OldMacDonaldsFarm.gras = 0;
+                        alert("gras is empty");
+                    }
+                    break;
+                case "corn":
+                    OldMacDonaldsFarm.corn -= 1;
+                    if (OldMacDonaldsFarm.corn < 0) {
+                        OldMacDonaldsFarm.corn = 0;
+                        alert("corn is empty");
+                    }
+                    break;
+                case "meat":
+                    OldMacDonaldsFarm.meat -= 1;
+                    if (OldMacDonaldsFarm.meat < 0) {
+                        OldMacDonaldsFarm.meat = 0;
+                        alert("meat is empty");
+                    }
+                    break;
+                case "apple":
+                    OldMacDonaldsFarm.apple -= 1;
+                    if (OldMacDonaldsFarm.apple < 0) {
+                        OldMacDonaldsFarm.apple = 0;
+                        alert("apple is empty");
+                    }
+                    break;
+            }
+        }
+        sing() {
+            let text = "Old McDonald had a farm\n EIA EIA Oh!\n And on that farm he had a " + this.species + " \n EIA EIA Oh!\n With a " + this.sound + " " + this.sound + " here \n And a " + this.sound + " " + this.sound + " there\n Here a " + this.sound + " there a " + this.sound + "\n Everywhere " + this.sound + " " + this.sound + " \n Old McDonald had a farm\n EIA EIA Oh!";
+            alert(text);
+        }
+    }
+    OldMacDonaldsFarm.Animal = Animal;
+})(OldMacDonaldsFarm || (OldMacDonaldsFarm = {}));
 //# sourceMappingURL=Animal.js.map
