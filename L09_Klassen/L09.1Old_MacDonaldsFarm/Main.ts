@@ -27,13 +27,25 @@ namespace OldMacDonaldsFarm {
         crc2.closePath();
         crc2.stroke();
 
+
         crc2.fillStyle = "brown";
+        crc2.fill();
+
+        crc2.beginPath();
+        crc2.arc(99, 100, 10, 30, 1.5 * Math.PI);
+        crc2.moveTo(130, 100);
+        crc2.stroke();
         crc2.fill();
 
         crc2.fillStyle = "black";
         crc2.fillRect(110, 65, 8, 8);
         crc2.fillRect(80, 65, 8, 8);
-        crc2.fillRect(95, 85, 8, 15);
+        crc2.fillRect(90, 85, 18, 15);
+
+        crc2.fillStyle = "white";
+        crc2.fillRect(110, 65, 3, 4);
+        crc2.fillRect(80, 65, 3, 4);
+
 
         let chickencanvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("Chicken");
         if (!chickencanvas)
@@ -47,12 +59,16 @@ namespace OldMacDonaldsFarm {
         crc2.closePath();
         crc2.stroke();
 
-        crc2.fillStyle = "white";
+        crc2.fillStyle = "bisque";
         crc2.fill();
 
-        crc2.fillStyle = "red";
+        crc2.fillStyle = "black";
         crc2.fillRect(110, 65, 8, 8);
         crc2.fillRect(80, 65, 8, 8);
+        crc2.fillStyle = "white";
+        crc2.fillRect(110, 65, 3, 4);
+        crc2.fillRect(80, 65, 3, 4);
+        crc2.fillStyle = "brown";
         crc2.fillRect(95, 85, 8, 15);
 
         let dogcanvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("Dog");
@@ -70,10 +86,22 @@ namespace OldMacDonaldsFarm {
         crc2.fillStyle = "orange";
         crc2.fill();
 
-        crc2.fillStyle = "bisque";
+        crc2.fillStyle = "black";
         crc2.fillRect(110, 65, 8, 8);
         crc2.fillRect(80, 65, 8, 8);
-        crc2.fillRect(95, 85, 8, 15);
+        crc2.fillStyle = "white";
+        crc2.fillRect(110, 65, 3, 4);
+        crc2.fillRect(80, 65, 3, 4);
+        crc2.fillStyle = "brown";
+        crc2.fillRect(90, 85, 18, 15);
+        crc2.fillRect(97, 95, 4, 13);
+
+        crc2.beginPath();
+        crc2.moveTo(99, 106);
+        crc2.lineTo(108, 110);
+        crc2.moveTo(99, 105);
+        crc2.lineTo(90, 110);
+        crc2.stroke();
 
         let pigcanvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("Pig");
         if (!pigcanvas)
@@ -90,10 +118,21 @@ namespace OldMacDonaldsFarm {
         crc2.fillStyle = "pink";
         crc2.fill();
 
-        crc2.fillStyle = "white";
+        crc2.beginPath();
+        crc2.arc(98, 97, 13, 30, 1.5 * Math.PI);
+        crc2.moveTo(130, 100);
+        crc2.stroke();
+        crc2.fill();
+
+        crc2.fillStyle = "black";
         crc2.fillRect(110, 65, 8, 8);
         crc2.fillRect(80, 65, 8, 8);
-        crc2.fillRect(95, 85, 8, 15);
+        crc2.fillStyle = "white";
+        crc2.fillRect(110, 65, 3, 4);
+        crc2.fillRect(80, 65, 3, 4);
+        crc2.fillStyle = "black";
+        crc2.fillRect(100, 95, 8, 8);
+        crc2.fillRect(90, 95, 8, 8);
 
         //Futtervorrat
         let grasstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("grasstorage");
@@ -146,6 +185,6 @@ namespace OldMacDonaldsFarm {
             applestorage.innerHTML = String(apple);
         }
 
-        
+
     }
 }
