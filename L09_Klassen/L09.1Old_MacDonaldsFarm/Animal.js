@@ -1,9 +1,9 @@
 var OldMacDonaldsFarm;
 (function (OldMacDonaldsFarm) {
     class Animal {
-        species = [];
-        food = [];
-        sound = [];
+        species;
+        food;
+        sound;
         constructor(_species, _food, _sound) {
             this.species = _species;
             this.food = _food;

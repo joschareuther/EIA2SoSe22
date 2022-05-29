@@ -265,9 +265,6 @@ namespace L08_Strand_Canvas {
             crc2.arc(100, 70, 4, 3.3, 0);
             crc2.arc(100 + 7, 70, 4, 3.4, 0);
 
-
-
-
             crc2.fillStyle = "HSLA(0, 0%, 100%, 1";
             crc2.fill();
 

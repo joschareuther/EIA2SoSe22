@@ -1,9 +1,9 @@
 namespace OldMacDonaldsFarm {
 
     export class Animal {
-        species: string = [];
-        food: string = [];
-        sound: string = [];
+        species: string;
+        food: string;
+        sound: string;
 
         constructor(_species: string, _food: string, _sound: string) {
             this.species = _species;
