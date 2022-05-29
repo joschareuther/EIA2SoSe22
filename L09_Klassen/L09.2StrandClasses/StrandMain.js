@@ -18,7 +18,7 @@ var StrandClasses;
         let bird = new StrandClasses.Bird({ x: 60, y: 100 });
         let jellyfish = new StrandClasses.Jellyfish({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "yellow");
         let palme = new StrandClasses.Palme({ x: 100, y: 100 });
-        let person = new StrandClasses.Person({ x: 100, y: 200 });
+        let person = new StrandClasses.Person({ x: 100, y: 200 }, "brown", "red", "white");
         let surferi = new StrandClasses.Surferi({ x: 100, y: 200 }, "brown", "red", "yellow");
         drawBackground();
         newSun.draw({ x: 250, y: getRandom(30, 100) });
@@ -35,9 +35,14 @@ var StrandClasses;
         drawTrees({ x: 40, y: 100 }, { x: 90, y: 10 });
         bird.draw({ x: 60, y: 100 });
         jellyfish.draw({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "orange");
+        jellyfish.draw({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "red");
+        jellyfish.draw({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "green");
+        jellyfish.draw({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "blue");
         palme.draw({ x: 100, y: 100 });
-        person.draw({ x: 100, y: 200 });
-        surferi.draw({ x: 100, y: 200 }, "brown", "red", "orange");
+        person.draw({ x: 100, y: 200 }, "brown", "red", "white");
+        person.draw({ x: 100, y: 200 }, "orange", "green", "red");
+        surferi.draw({ x: 100, y: 200 }, "orange", "red", "orange");
+        surferi.draw({ x: 100, y: 200 }, "black", "red", "yellow");
     }
     function drawBackground() {
         console.log("Background");

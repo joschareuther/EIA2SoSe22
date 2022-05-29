@@ -216,32 +216,32 @@ namespace StrandClasses {
         position: Vector;
         color: string;
         clothingcolor: string;
+        feathercolor: string;
 
-        constructor(_position: Vector, _color: string, _clothingcolor: string) {
+        constructor(_position: Vector, _color: string, _clothingcolor: string, _feathercolor: string) {
             this.position = _position;
             this.color = _color;
             this.clothingcolor = _clothingcolor;
+            this.feathercolor = _feathercolor;
         }
 
-        draw(_position: Vector, _color: string, _clothingcolor: string): void {
+        draw(_position: Vector, _color: string, _clothingcolor: string, _feathercolor: string): void {
             console.log("Person");
             let x: number;
             let y: number;
 
-            for (let nPeople: number = 0; nPeople < 3; nPeople++) {
-                crc2.fillStyle = "rgb(" + getRandom(10, 200) + ", " + getRandom(50, 200) + ", " + getRandom(50, 200) + ", " + 1 + ")";
-                crc2.fillRect(x = getRandom(5, 160), y = getRandom(120, 140), 8, 10);
+            crc2.fillStyle = _clothingcolor;
+            crc2.fillRect(x = getRandom(5, 160), y = getRandom(120, 140), 8, 10);
 
-                crc2.beginPath();
-                crc2.arc(x - 12, y, 15, Math.PI * 2, Math.PI * 1.7, true);
-                crc2.fillStyle = "white";
-                crc2.fill();
+            crc2.beginPath();
+            crc2.arc(x - 12, y, 15, Math.PI * 2, Math.PI * 1.7, true);
+            crc2.fillStyle = _feathercolor;
+            crc2.fill();
 
-                crc2.beginPath();
-                crc2.arc(x + 4, y - 2, 5, 0, Math.PI * 2, true);
-                crc2.fillStyle = "#3b1623";
-                crc2.fill();
-            }
+            crc2.beginPath();
+            crc2.arc(x + 4, y - 2, 5, 0, Math.PI * 2, true);
+            crc2.fillStyle = _color;
+            crc2.fill();
         }
 
         move(): void {
@@ -267,31 +267,29 @@ namespace StrandClasses {
             let x: number;
             let y: number;
 
-            for (let nPeople: number = 0; nPeople < 2; nPeople++) {
+            crc2.beginPath();
+            crc2.ellipse(x = getRandom(100, 160), y = getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
+            crc2.stroke();
+            crc2.fillStyle = _surfboardcolor;
+            crc2.fill();
 
-                crc2.beginPath();
-                crc2.ellipse(x = getRandom(100, 160), y = getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
-                crc2.stroke();
-                crc2.fillStyle = _surfboardcolor;
-                crc2.fill();
+            crc2.save();
+            crc2.translate(x, y);
+            crc2.restore();
 
-                crc2.save();
-                crc2.translate(x, y);
-                crc2.restore();
+            crc2.fillStyle = "rgb(" + getRandom(10, 200) + ", " + getRandom(50, 200) + ", " + getRandom(50, 200) + ", " + 1 + ")";
+            crc2.fillRect(x - 4, y - 10, 8, 10);
 
-                crc2.fillStyle = "rgb(" + getRandom(10, 200) + ", " + getRandom(50, 200) + ", " + getRandom(50, 200) + ", " + 1 + ")";
-                crc2.fillRect(x - 4, y - 10, 8, 10);
+            crc2.beginPath();
+            crc2.arc(x - 16, y - 10, 15, Math.PI * 2, Math.PI * 1.7, true);
+            crc2.fillStyle = "white";
+            crc2.fill();
 
-                crc2.beginPath();
-                crc2.arc(x - 16, y - 10, 15, Math.PI * 2, Math.PI * 1.7, true);
-                crc2.fillStyle = "white";
-                crc2.fill();
+            crc2.beginPath();
+            crc2.arc(x, y - 12, 5, 0, Math.PI * 2, true);
+            crc2.fillStyle = _color;
+            crc2.fill();
 
-                crc2.beginPath();
-                crc2.arc(x, y - 12, 5, 0, Math.PI * 2, true);
-                crc2.fillStyle = "#3b1623";
-                crc2.fill();
-            }
         }
 
         swim(): void {
@@ -316,29 +314,27 @@ namespace StrandClasses {
             let x: number;
             let y: number;
 
+            crc2.save();
+            crc2.translate(0, 0);
+            crc2.beginPath();
+            crc2.arc(x = getRandom(180, 280), y = getRandom(horizon + 30, horizon + 50), getRandom(4, 7), 3, 6);
+            crc2.closePath();
+            crc2.stroke();
 
-            for (let nJellyfish: number = 0; nJellyfish < 5; nJellyfish++) {
-                crc2.save();
-                crc2.translate(0, 0);
-                crc2.beginPath();
-                crc2.arc(x = getRandom(180, 280), y = getRandom(horizon + 30, horizon + 50), getRandom(4, 7), 3, 6);
-                crc2.closePath();
-                crc2.stroke();
+            crc2.fillStyle = _color;
+            crc2.fill();
 
-                crc2.fillStyle = _color;
-                crc2.fill();
+            crc2.beginPath();
+            crc2.moveTo(x - 3, y);
+            crc2.lineTo(x + 6, y + 10);
 
-                crc2.beginPath();
-                crc2.moveTo(x - 3, y);
-                crc2.lineTo(x + 6, y + 10);
+            crc2.moveTo(x, y);
+            crc2.lineTo(x + 9, y + 10);
 
-                crc2.moveTo(x, y);
-                crc2.lineTo(x + 9, y + 10);
+            crc2.moveTo(x + 3, y - 1);
+            crc2.lineTo(x + 12, y + 10);
+            crc2.stroke();
 
-                crc2.moveTo(x + 3, y - 1);
-                crc2.lineTo(x + 12, y + 10);
-                crc2.stroke();
-            }
         }
 
 
@@ -388,9 +384,10 @@ namespace StrandClasses {
                 crc2.arc(x - 6, y + 9, 14, Math.PI * 1.8, Math.PI * 1.3, true);
                 crc2.fillStyle = "green";
                 crc2.fill();
-            } }
+            }
+        }
 
-            walk(): void {
+        walk(): void {
 
         }
     }

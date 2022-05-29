@@ -164,27 +164,27 @@ var StrandClasses;
         position;
         color;
         clothingcolor;
-        constructor(_position, _color, _clothingcolor) {
+        feathercolor;
+        constructor(_position, _color, _clothingcolor, _feathercolor) {
             this.position = _position;
             this.color = _color;
             this.clothingcolor = _clothingcolor;
+            this.feathercolor = _feathercolor;
         }
-        draw(_position, _color, _clothingcolor) {
+        draw(_position, _color, _clothingcolor, _feathercolor) {
             console.log("Person");
             let x;
             let y;
-            for (let nPeople = 0; nPeople < 3; nPeople++) {
-                StrandClasses.crc2.fillStyle = "rgb(" + StrandClasses.getRandom(10, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + 1 + ")";
-                StrandClasses.crc2.fillRect(x = StrandClasses.getRandom(5, 160), y = StrandClasses.getRandom(120, 140), 8, 10);
-                StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.arc(x - 12, y, 15, Math.PI * 2, Math.PI * 1.7, true);
-                StrandClasses.crc2.fillStyle = "white";
-                StrandClasses.crc2.fill();
-                StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.arc(x + 4, y - 2, 5, 0, Math.PI * 2, true);
-                StrandClasses.crc2.fillStyle = "#3b1623";
-                StrandClasses.crc2.fill();
-            }
+            StrandClasses.crc2.fillStyle = _clothingcolor;
+            StrandClasses.crc2.fillRect(x = StrandClasses.getRandom(5, 160), y = StrandClasses.getRandom(120, 140), 8, 10);
+            StrandClasses.crc2.beginPath();
+            StrandClasses.crc2.arc(x - 12, y, 15, Math.PI * 2, Math.PI * 1.7, true);
+            StrandClasses.crc2.fillStyle = _feathercolor;
+            StrandClasses.crc2.fill();
+            StrandClasses.crc2.beginPath();
+            StrandClasses.crc2.arc(x + 4, y - 2, 5, 0, Math.PI * 2, true);
+            StrandClasses.crc2.fillStyle = _color;
+            StrandClasses.crc2.fill();
         }
         move() {
         }
@@ -205,26 +205,24 @@ var StrandClasses;
             console.log("Surferi");
             let x;
             let y;
-            for (let nPeople = 0; nPeople < 2; nPeople++) {
-                StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.ellipse(x = StrandClasses.getRandom(100, 160), y = StrandClasses.getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
-                StrandClasses.crc2.stroke();
-                StrandClasses.crc2.fillStyle = _surfboardcolor;
-                StrandClasses.crc2.fill();
-                StrandClasses.crc2.save();
-                StrandClasses.crc2.translate(x, y);
-                StrandClasses.crc2.restore();
-                StrandClasses.crc2.fillStyle = "rgb(" + StrandClasses.getRandom(10, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + 1 + ")";
-                StrandClasses.crc2.fillRect(x - 4, y - 10, 8, 10);
-                StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.arc(x - 16, y - 10, 15, Math.PI * 2, Math.PI * 1.7, true);
-                StrandClasses.crc2.fillStyle = "white";
-                StrandClasses.crc2.fill();
-                StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.arc(x, y - 12, 5, 0, Math.PI * 2, true);
-                StrandClasses.crc2.fillStyle = "#3b1623";
-                StrandClasses.crc2.fill();
-            }
+            StrandClasses.crc2.beginPath();
+            StrandClasses.crc2.ellipse(x = StrandClasses.getRandom(100, 160), y = StrandClasses.getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
+            StrandClasses.crc2.stroke();
+            StrandClasses.crc2.fillStyle = _surfboardcolor;
+            StrandClasses.crc2.fill();
+            StrandClasses.crc2.save();
+            StrandClasses.crc2.translate(x, y);
+            StrandClasses.crc2.restore();
+            StrandClasses.crc2.fillStyle = "rgb(" + StrandClasses.getRandom(10, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + 1 + ")";
+            StrandClasses.crc2.fillRect(x - 4, y - 10, 8, 10);
+            StrandClasses.crc2.beginPath();
+            StrandClasses.crc2.arc(x - 16, y - 10, 15, Math.PI * 2, Math.PI * 1.7, true);
+            StrandClasses.crc2.fillStyle = "white";
+            StrandClasses.crc2.fill();
+            StrandClasses.crc2.beginPath();
+            StrandClasses.crc2.arc(x, y - 12, 5, 0, Math.PI * 2, true);
+            StrandClasses.crc2.fillStyle = _color;
+            StrandClasses.crc2.fill();
         }
         swim() {
         }
@@ -242,24 +240,22 @@ var StrandClasses;
             let horizon = StrandClasses.height * StrandClasses.golden;
             let x;
             let y;
-            for (let nJellyfish = 0; nJellyfish < 5; nJellyfish++) {
-                StrandClasses.crc2.save();
-                StrandClasses.crc2.translate(0, 0);
-                StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.arc(x = StrandClasses.getRandom(180, 280), y = StrandClasses.getRandom(horizon + 30, horizon + 50), StrandClasses.getRandom(4, 7), 3, 6);
-                StrandClasses.crc2.closePath();
-                StrandClasses.crc2.stroke();
-                StrandClasses.crc2.fillStyle = _color;
-                StrandClasses.crc2.fill();
-                StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.moveTo(x - 3, y);
-                StrandClasses.crc2.lineTo(x + 6, y + 10);
-                StrandClasses.crc2.moveTo(x, y);
-                StrandClasses.crc2.lineTo(x + 9, y + 10);
-                StrandClasses.crc2.moveTo(x + 3, y - 1);
-                StrandClasses.crc2.lineTo(x + 12, y + 10);
-                StrandClasses.crc2.stroke();
-            }
+            StrandClasses.crc2.save();
+            StrandClasses.crc2.translate(0, 0);
+            StrandClasses.crc2.beginPath();
+            StrandClasses.crc2.arc(x = StrandClasses.getRandom(180, 280), y = StrandClasses.getRandom(horizon + 30, horizon + 50), StrandClasses.getRandom(4, 7), 3, 6);
+            StrandClasses.crc2.closePath();
+            StrandClasses.crc2.stroke();
+            StrandClasses.crc2.fillStyle = _color;
+            StrandClasses.crc2.fill();
+            StrandClasses.crc2.beginPath();
+            StrandClasses.crc2.moveTo(x - 3, y);
+            StrandClasses.crc2.lineTo(x + 6, y + 10);
+            StrandClasses.crc2.moveTo(x, y);
+            StrandClasses.crc2.lineTo(x + 9, y + 10);
+            StrandClasses.crc2.moveTo(x + 3, y - 1);
+            StrandClasses.crc2.lineTo(x + 12, y + 10);
+            StrandClasses.crc2.stroke();
         }
         swim() {
         }
