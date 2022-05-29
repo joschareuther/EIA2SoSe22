@@ -272,7 +272,7 @@ namespace StrandClasses {
                 crc2.beginPath();
                 crc2.ellipse(x = getRandom(100, 160), y = getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
                 crc2.stroke();
-                crc2.fillStyle = "orange";
+                crc2.fillStyle = _surfboardcolor;
                 crc2.fill();
 
                 crc2.save();
@@ -325,7 +325,7 @@ namespace StrandClasses {
                 crc2.closePath();
                 crc2.stroke();
 
-                crc2.fillStyle = "HSLA(0, 100%, 50%, 0.65";
+                crc2.fillStyle = _color;
                 crc2.fill();
 
                 crc2.beginPath();
@@ -356,7 +356,7 @@ namespace StrandClasses {
         }
 
         draw(_position: Vector): void {
-            console.log("Palmen");
+            console.log("Palme");
             let x: number;
             let y: number;
             for (let nPalmos: number = 0; nPalmos < 4; nPalmos++) {

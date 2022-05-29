@@ -1,4 +1,4 @@
-namespace L08_Strand_Canvas {
+namespace StrandClasses {
 
 
     export let golden: number = 0.62;
@@ -18,32 +18,35 @@ namespace L08_Strand_Canvas {
         height = canvas.height;
         width = canvas.width;
         let horizon: number = height * golden;
-        let newSun: StrandClasses.Sun = new StrandClasses.Sun({ x: 250, y: getRandom(30, 100) });
-        let cloud1: StrandClasses.Cloud = new StrandClasses.Cloud({ x: 100, y: 50 }, { x: 70, y: 60 });
-        let cloud2: StrandClasses.Cloud = new StrandClasses.Cloud({ x: 200, y: 70 }, { x: 100, y: 150 });
-        let boat: StrandClasses.Boat = new StrandClasses.Boat({ x: getRandom(230, 290), y: horizon + 10 });
+        let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100) });
+        let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 });
+        let cloud2: Cloud = new Cloud({ x: 200, y: 70 }, { x: 100, y: 150 });
+        let boat: Boat = new Boat({ x: getRandom(230, 290), y: horizon + 10 });
         let volcano: StrandClasses.Vulcano = new StrandClasses.Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
-        let Bird: StrandClasses.Bird = new StrandClasses.Bird({ x: 60, y: 100 });
-        let Jellyfish: StrandClasses.Jellyfish = new StrandClasses.Jellyfish({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "red");
+        let bird: Bird = new Bird({ x: 60, y: 100 });
+        let jellyfish: Jellyfish = new Jellyfish({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "yellow");
+        let palme: Palme = new Palme({x: 100, y: 100});
+        let person: Person = new Person({x: 100,y: 200});
+        let surferi: Surferi = new Surferi({x: 100,y: 200}, "brown", "red", "yellow");
+        
         drawBackground();
-        //newSun.draw({ x: 250, y: getRandom(30, 100) });
+        newSun.draw({ x: 250, y: getRandom(30, 100) });
         //newSun.sink();
-        //cloud1.draw({ x: 100, y: 50 }, { x: 70, y: 60 });
-        //cloud2.draw({ x: 200, y: 70 }, { x: 100, y: 150 });
+        cloud1.draw({ x: 100, y: 50 }, { x: 70, y: 60 });
+        cloud2.draw({ x: 200, y: 70 }, { x: 100, y: 150 });
         //cloud1.fly();
-        //boat.draw({ x: getRandom(230, 290), y: horizon + 10 });
+        boat.draw({ x: getRandom(230, 290), y: horizon + 10 });
         drawSea();
         drawBeach({ x: width / 2 - 50, y: horizon }, 100);
-        //volcano.draw({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
+        volcano.draw({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
         drawMountains({ x: 0, y: horizon }, 15, 30, "darkgrey", "white", width / 2 - 20);
         drawMountains({ x: 0, y: horizon }, 10, 20, "darkgrey", "green", width / 2);
         drawTrees({ x: 40, y: 100 }, { x: 90, y: 10 });
-        Bird.draw({ x: 60, y: 100 });
-        Jellyfish.draw({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "red");
-        drawPalmos();
-        drawPeople();
-        drawSurferi();
-        //drawFishes();
+        bird.draw({ x: 60, y: 100 });
+        jellyfish.draw({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "orange");
+        palme.draw({x: 100, y: 100});
+        person.draw({x: 100,y: 200});
+        surferi.draw({x: 100,y: 200}, "brown", "red", "orange");
 
     }
 
@@ -154,7 +157,7 @@ namespace L08_Strand_Canvas {
         crc2.restore();
     }
 
-    function getRandom(_min: number, _max: number): number {
+    export function getRandom(_min: number, _max: number): number {
         let random: number = Math.floor(Math.random() * (_max - _min + 1)) + _min;
         return random;
     }

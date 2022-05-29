@@ -174,8 +174,8 @@ var StrandClasses;
             let x;
             let y;
             for (let nPeople = 0; nPeople < 3; nPeople++) {
-                StrandClasses.crc2.fillStyle = "rgb(" + getRandom(10, 200) + ", " + getRandom(50, 200) + ", " + getRandom(50, 200) + ", " + 1 + ")";
-                StrandClasses.crc2.fillRect(x = getRandom(5, 160), y = getRandom(120, 140), 8, 10);
+                StrandClasses.crc2.fillStyle = "rgb(" + StrandClasses.getRandom(10, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + 1 + ")";
+                StrandClasses.crc2.fillRect(x = StrandClasses.getRandom(5, 160), y = StrandClasses.getRandom(120, 140), 8, 10);
                 StrandClasses.crc2.beginPath();
                 StrandClasses.crc2.arc(x - 12, y, 15, Math.PI * 2, Math.PI * 1.7, true);
                 StrandClasses.crc2.fillStyle = "white";
@@ -207,14 +207,14 @@ var StrandClasses;
             let y;
             for (let nPeople = 0; nPeople < 2; nPeople++) {
                 StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.ellipse(x = getRandom(100, 160), y = getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
+                StrandClasses.crc2.ellipse(x = StrandClasses.getRandom(100, 160), y = StrandClasses.getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
                 StrandClasses.crc2.stroke();
-                StrandClasses.crc2.fillStyle = "orange";
+                StrandClasses.crc2.fillStyle = _surfboardcolor;
                 StrandClasses.crc2.fill();
                 StrandClasses.crc2.save();
                 StrandClasses.crc2.translate(x, y);
                 StrandClasses.crc2.restore();
-                StrandClasses.crc2.fillStyle = "rgb(" + getRandom(10, 200) + ", " + getRandom(50, 200) + ", " + getRandom(50, 200) + ", " + 1 + ")";
+                StrandClasses.crc2.fillStyle = "rgb(" + StrandClasses.getRandom(10, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + StrandClasses.getRandom(50, 200) + ", " + 1 + ")";
                 StrandClasses.crc2.fillRect(x - 4, y - 10, 8, 10);
                 StrandClasses.crc2.beginPath();
                 StrandClasses.crc2.arc(x - 16, y - 10, 15, Math.PI * 2, Math.PI * 1.7, true);
@@ -246,10 +246,10 @@ var StrandClasses;
                 StrandClasses.crc2.save();
                 StrandClasses.crc2.translate(0, 0);
                 StrandClasses.crc2.beginPath();
-                StrandClasses.crc2.arc(x = getRandom(180, 280), y = getRandom(horizon + 30, horizon + 50), getRandom(4, 7), 3, 6);
+                StrandClasses.crc2.arc(x = StrandClasses.getRandom(180, 280), y = StrandClasses.getRandom(horizon + 30, horizon + 50), StrandClasses.getRandom(4, 7), 3, 6);
                 StrandClasses.crc2.closePath();
                 StrandClasses.crc2.stroke();
-                StrandClasses.crc2.fillStyle = "HSLA(0, 100%, 50%, 0.65";
+                StrandClasses.crc2.fillStyle = _color;
                 StrandClasses.crc2.fill();
                 StrandClasses.crc2.beginPath();
                 StrandClasses.crc2.moveTo(x - 3, y);
@@ -271,12 +271,12 @@ var StrandClasses;
             this.position = _position;
         }
         draw(_position) {
-            console.log("Palmen");
+            console.log("Palme");
             let x;
             let y;
             for (let nPalmos = 0; nPalmos < 4; nPalmos++) {
                 StrandClasses.crc2.fillStyle = "brown";
-                StrandClasses.crc2.fillRect(x = getRandom(5, 70), y = getRandom(90, 110), 5, 15);
+                StrandClasses.crc2.fillRect(x = StrandClasses.getRandom(5, 70), y = StrandClasses.getRandom(90, 110), 5, 15);
                 StrandClasses.crc2.beginPath();
                 StrandClasses.crc2.arc(x, y + 30, 30, 180, 30);
                 StrandClasses.crc2.fillStyle = "green";
@@ -313,7 +313,7 @@ var StrandClasses;
             let horizon = StrandClasses.height * StrandClasses.golden;
             for (let nBirds = 0; nBirds < 8; nBirds++) {
                 StrandClasses.crc2.save();
-                StrandClasses.crc2.translate(getRandom(0, 60), getRandom(60, 100) - horizon);
+                StrandClasses.crc2.translate(StrandClasses.getRandom(0, 60), StrandClasses.getRandom(60, 100) - horizon);
                 StrandClasses.crc2.beginPath();
                 StrandClasses.crc2.arc(100, 70, 4, 3.3, 0);
                 StrandClasses.crc2.arc(100 + 7, 70, 4, 3.4, 0);
