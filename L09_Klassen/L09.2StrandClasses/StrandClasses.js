@@ -2,7 +2,6 @@ var StrandClasses;
 (function (StrandClasses) {
     class Sun {
         position;
-        y;
         speed;
         constructor(_position) {
             this.position = _position;
@@ -21,7 +20,7 @@ var StrandClasses;
         }
         sink() {
             console.log("Sink!");
-            this.y += this.speed * (-50) + 10;
+            this.x += this.speed * +1;
         }
     }
     StrandClasses.Sun = Sun;
