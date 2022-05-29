@@ -14,8 +14,8 @@ namespace StrandClasses {
     let bird: Bird = new Bird({ x: 60, y: 100 });
     let jellyfish: Jellyfish = new Jellyfish({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "yellow");
     let palme: Palme = new Palme({x: 100, y: 100});
-    let person: Person = new Person({x: 100,y: 200}, "brown", "red", "white");
-    let surferi: Surferi = new Surferi({x: 100,y: 200}, "brown", "red", "yellow");
+    let person: Person = new Person({x: 100, y: 200}, "brown", "red", "white");
+    let surferi: Surferi = new Surferi({x: 100, y: 200}, "brown", "red", "yellow");
 
 
     window.addEventListener("load", handleLoad);
@@ -33,10 +33,8 @@ namespace StrandClasses {
         
         drawBackground();
         newSun.draw({ x: 250, y: getRandom(30, 100) });
-        //newSun.sink();
         cloud1.draw({ x: 100, y: 50 }, { x: 70, y: 60 });
         cloud2.draw({ x: 200, y: 70 }, { x: 100, y: 150 });
-        //cloud1.fly();
         boat.draw({ x: getRandom(230, 290), y: horizon + 10 });
         drawSea();
         drawBeach({ x: width / 2 - 50, y: horizon }, 100);
@@ -167,6 +165,13 @@ namespace StrandClasses {
 
     function handleClick(_event: Event): void {
         console.log("Click");
+
+        jellyfish.swim();
+        volcano.explode();
+        person.move();
+        cloud1.fly();
+        newSun.sink();
+        boat.swimm();
     }
 
     export function getRandom(_min: number, _max: number): number {

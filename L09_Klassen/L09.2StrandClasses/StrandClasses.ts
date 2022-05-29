@@ -7,6 +7,8 @@ namespace StrandClasses {
 
     export class Sun {
         position: Vector;
+        y: number;
+        speed: number;
 
         constructor(_position: Vector) {
             this.position = _position;
@@ -29,7 +31,9 @@ namespace StrandClasses {
         }
 
         sink(): void {
-
+            console.log("Sink!");
+            this.y += this.speed * (- 50) + 10 ; 
+            
         }
     }
 

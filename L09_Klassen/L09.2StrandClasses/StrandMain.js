@@ -23,10 +23,8 @@ var StrandClasses;
         horizon = StrandClasses.height * StrandClasses.golden;
         drawBackground();
         newSun.draw({ x: 250, y: getRandom(30, 100) });
-        //newSun.sink();
         cloud1.draw({ x: 100, y: 50 }, { x: 70, y: 60 });
         cloud2.draw({ x: 200, y: 70 }, { x: 100, y: 150 });
-        //cloud1.fly();
         boat.draw({ x: getRandom(230, 290), y: horizon + 10 });
         drawSea();
         drawBeach({ x: StrandClasses.width / 2 - 50, y: horizon }, 100);
@@ -126,6 +124,12 @@ var StrandClasses;
     }
     function handleClick(_event) {
         console.log("Click");
+        jellyfish.swim();
+        volcano.explode();
+        person.move();
+        cloud1.fly();
+        newSun.sink();
+        boat.swimm();
     }
     function getRandom(_min, _max) {
         let random = Math.floor(Math.random() * (_max - _min + 1)) + _min;
