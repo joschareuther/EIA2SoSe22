@@ -18,17 +18,18 @@ namespace L08_Strand_Canvas {
         height = canvas.height;
         width = canvas.width;
         let horizon: number = height * golden;
-        let newSun: Sun = new Sun ({ x: 250, y: getRandom(30, 100) });
-        let Cloud1: Cloud = new Cloud ({ x: 100, y: 50 }, { x: 70, y: 60 });
-        let Cloud2: Cloud = new Cloud ({ x: 200, y: 70 }, { x: 100, y: 150 });
+        let newSun: StrandClasses.Sun = new StrandClasses.Sun ({ x: 250, y: getRandom(30, 100) });
+        let cloud1: StrandClasses.Cloud = new StrandClasses.Cloud ({ x: 100, y: 50 }, { x: 70, y: 60 });
+        let cloud2: StrandClasses.Cloud = new StrandClasses.Cloud ({ x: 200, y: 70 }, { x: 100, y: 150 });
+        let boat: StrandClasses.Boat = new StrandClasses.Boat ({ x: getRandom(230, 290), y: horizon + 10 });
 
         drawBackground();
-        newSun.draw();
-        newSun.sink();
-        Cloud1.draw();
-        Cloud2.draw();
-        Cloud1.fly();
-        drawBoat({ x: getRandom(230, 290), y: horizon + 10 });
+        //newSun.draw({ x: 250, y: getRandom(30, 100) });
+        //newSun.sink();
+        //cloud1.draw({ x: 100, y: 50 }, { x: 70, y: 60 });
+        //cloud2.draw({ x: 200, y: 70 }, { x: 100, y: 150 });
+        //cloud1.fly();
+        boat.draw({ x: getRandom(230, 290), y: horizon + 10 });
         drawSea();
         drawBeach({ x: width / 2 - 50, y: horizon }, 100);
         drawVulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });

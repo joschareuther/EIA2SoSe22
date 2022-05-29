@@ -19,9 +19,7 @@ namespace StrandClasses {
         draw(_position: Vector): void {
             console.log("Sun", _position);
 
-            let r1: number = 12;
-            let r2: number = 50;
-            let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
+            let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 12, 0, 0, 50);
 
             gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1");
             gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0");
@@ -29,7 +27,7 @@ namespace StrandClasses {
             crc2.save();
             crc2.translate(_position.x, _position.y);
             crc2.fillStyle = gradient;
-            crc2.arc(0, 0, r2, 0, 2 * Math.PI);
+            crc2.arc(0, 0, 50, 0, 2 * Math.PI);
             crc2.fill();
             crc2.restore();
         }

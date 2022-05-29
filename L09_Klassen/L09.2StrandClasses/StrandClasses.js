@@ -8,15 +8,13 @@ var StrandClasses;
         }
         draw(_position) {
             console.log("Sun", _position);
-            let r1 = 12;
-            let r2 = 50;
-            let gradient = StrandClasses.crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
+            let gradient = StrandClasses.crc2.createRadialGradient(0, 0, 12, 0, 0, 50);
             gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1");
             gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0");
             StrandClasses.crc2.save();
             StrandClasses.crc2.translate(_position.x, _position.y);
             StrandClasses.crc2.fillStyle = gradient;
-            StrandClasses.crc2.arc(0, 0, r2, 0, 2 * Math.PI);
+            StrandClasses.crc2.arc(0, 0, 50, 0, 2 * Math.PI);
             StrandClasses.crc2.fill();
             StrandClasses.crc2.restore();
         }
