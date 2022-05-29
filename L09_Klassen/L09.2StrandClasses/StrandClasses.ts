@@ -129,39 +129,6 @@ namespace StrandClasses {
         }
     }
 
-    export class Beach {
-        position: Vector;
-        widthfront: number;
-
-        constructor(_position: Vector, _widthfront: number) {
-            this.position = _position;
-            this.widthfront = _widthfront;
-        }
-
-        draw(_position: Vector, _widthfront: number): void {
-            console.log("Beach");
-
-            crc2.beginPath();
-            crc2.moveTo(_position.x, _position.y);
-            crc2.bezierCurveTo(_position.x - 100, _position.y + 10, _position.x + 100, _position.y + 100, _position.x + 800, _position.y + 200);
-            crc2.lineTo(0, height);
-            crc2.lineTo(0, _position.y);
-            crc2.closePath();
-
-            let gradient: CanvasGradient = crc2.createLinearGradient(0, _position.y, 0, height);
-            gradient.addColorStop(0, "brown");
-            gradient.addColorStop(0.6, "lightyellow");
-
-            crc2.fillStyle = gradient;
-            crc2.fill();
-        }
-
-        change(): void {
-
-        }
-
-    }
-
     export class Vulcano {
         position: Vector;
         min: number;

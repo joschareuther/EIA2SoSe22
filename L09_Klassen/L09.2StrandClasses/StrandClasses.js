@@ -95,31 +95,6 @@ var StrandClasses;
         }
     }
     StrandClasses.Boat = Boat;
-    class Beach {
-        position;
-        widthfront;
-        constructor(_position, _widthfront) {
-            this.position = _position;
-            this.widthfront = _widthfront;
-        }
-        draw(_position, _widthfront) {
-            console.log("Beach");
-            StrandClasses.crc2.beginPath();
-            StrandClasses.crc2.moveTo(_position.x, _position.y);
-            StrandClasses.crc2.bezierCurveTo(_position.x - 100, _position.y + 10, _position.x + 100, _position.y + 100, _position.x + 800, _position.y + 200);
-            StrandClasses.crc2.lineTo(0, StrandClasses.height);
-            StrandClasses.crc2.lineTo(0, _position.y);
-            StrandClasses.crc2.closePath();
-            let gradient = StrandClasses.crc2.createLinearGradient(0, _position.y, 0, StrandClasses.height);
-            gradient.addColorStop(0, "brown");
-            gradient.addColorStop(0.6, "lightyellow");
-            StrandClasses.crc2.fillStyle = gradient;
-            StrandClasses.crc2.fill();
-        }
-        change() {
-        }
-    }
-    StrandClasses.Beach = Beach;
     class Vulcano {
         position;
         min;
