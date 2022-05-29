@@ -1,10 +1,21 @@
 namespace StrandClasses {
 
-
     export let golden: number = 0.62;
     export let height: number;
     export let width: number;
     export let crc2: CanvasRenderingContext2D;
+    let horizon: number;
+
+    let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100) });
+    let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 });
+    let cloud2: Cloud = new Cloud({ x: 200, y: 70 }, { x: 100, y: 150 });
+    let boat: Boat = new Boat({ x: getRandom(230, 290), y: horizon + 10 });
+    let volcano: StrandClasses.Vulcano = new StrandClasses.Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
+    let bird: Bird = new Bird({ x: 60, y: 100 });
+    let jellyfish: Jellyfish = new Jellyfish({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "yellow");
+    let palme: Palme = new Palme({x: 100, y: 100});
+    let person: Person = new Person({x: 100,y: 200}, "brown", "red", "white");
+    let surferi: Surferi = new Surferi({x: 100,y: 200}, "brown", "red", "yellow");
 
 
     window.addEventListener("load", handleLoad);
@@ -17,17 +28,8 @@ namespace StrandClasses {
 
         height = canvas.height;
         width = canvas.width;
-        let horizon: number = height * golden;
-        let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100) });
-        let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 });
-        let cloud2: Cloud = new Cloud({ x: 200, y: 70 }, { x: 100, y: 150 });
-        let boat: Boat = new Boat({ x: getRandom(230, 290), y: horizon + 10 });
-        let volcano: StrandClasses.Vulcano = new StrandClasses.Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
-        let bird: Bird = new Bird({ x: 60, y: 100 });
-        let jellyfish: Jellyfish = new Jellyfish({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "yellow");
-        let palme: Palme = new Palme({x: 100, y: 100});
-        let person: Person = new Person({x: 100,y: 200}, "brown", "red", "white");
-        let surferi: Surferi = new Surferi({x: 100,y: 200}, "brown", "red", "yellow");
+        horizon = height * golden;
+
         
         drawBackground();
         newSun.draw({ x: 250, y: getRandom(30, 100) });
@@ -49,11 +51,11 @@ namespace StrandClasses {
         jellyfish.draw({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "blue");
         palme.draw({x: 100, y: 100});
         person.draw({x: 100, y: 200}, "brown", "red", "white");
-        person.draw({x: 100, y: 200}, "orange", "green", "red");
+        person.draw({x: 100, y: 200}, "orange", "green", "");
         surferi.draw({x: 100, y: 200}, "orange", "red", "orange");
         surferi.draw({x: 100, y: 200}, "black", "red", "yellow");
 
-
+        canvas.addEventListener("click", handleClick);
     }
 
     function drawBackground(): void {
@@ -161,6 +163,10 @@ namespace StrandClasses {
 
         }
         crc2.restore();
+    }
+
+    function handleClick(_event: Event): void {
+        console.log("Click");
     }
 
     export function getRandom(_min: number, _max: number): number {

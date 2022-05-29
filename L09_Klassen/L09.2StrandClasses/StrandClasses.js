@@ -1,6 +1,5 @@
 var StrandClasses;
 (function (StrandClasses) {
-    StrandClasses.golden = 0.62;
     class Sun {
         position;
         constructor(_position) {

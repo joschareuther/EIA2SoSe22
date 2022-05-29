@@ -4,10 +4,6 @@ namespace StrandClasses {
         y: number;
     }
 
-    export let golden: number = 0.62;
-    export let height: number;
-    export let width: number;
-    export let crc2: CanvasRenderingContext2D;
 
     export class Sun {
         position: Vector;
