@@ -74,7 +74,7 @@ namespace StrandClasses {
         }
 
         fly(): void {
-
+            console.log("Wolke fliegt!");
         }
     }
 
@@ -210,7 +210,7 @@ namespace StrandClasses {
         }
 
         explode(): void {
-
+            console.log("Vulkan explodiert!");
         }
     }
 
@@ -247,7 +247,7 @@ namespace StrandClasses {
         }
 
         move(): void {
-
+            console.log("MEnschi läuft!");
         }
     }
 
@@ -295,7 +295,7 @@ namespace StrandClasses {
         }
 
         swim(): void {
-
+            console.log("Surferi surft"!);
         }
     }
 
@@ -343,7 +343,7 @@ namespace StrandClasses {
 
 
         swim(): void {
-
+            console.log("Jellyfish swim!");
         }
     }
     export class Palme {
@@ -390,7 +390,7 @@ namespace StrandClasses {
         }
 
         walk(): void {
-
+            console.log("Palme läuft!");
         }
     }
 
@@ -426,7 +426,7 @@ namespace StrandClasses {
         }
 
         fly(): void {
-
+            console.log("Möwe flieg!");
         }
 
 
