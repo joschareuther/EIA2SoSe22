@@ -1,10 +1,16 @@
 var StrandClasses;
 (function (StrandClasses) {
+    class Vector {
+        x;
+        y;
+    }
+    StrandClasses.Vector = Vector;
     class Sun {
         position;
-        speed;
-        constructor(_position) {
+        velocity;
+        constructor(_position, _velocity) {
             this.position = _position;
+            this.velocity = _velocity;
         }
         draw(_position) {
             console.log("Sun", _position);
@@ -18,9 +24,9 @@ var StrandClasses;
             StrandClasses.crc2.fill();
             StrandClasses.crc2.restore();
         }
-        sink() {
+        sink(_velocity) {
             console.log("Sink!");
-            this.x += this.speed * +1;
+            this.position.x += this.velocity * (10);
         }
     }
     StrandClasses.Sun = Sun;
@@ -59,8 +65,10 @@ var StrandClasses;
     StrandClasses.Cloud = Cloud;
     class Boat {
         position;
-        constructor(_position) {
+        velocity;
+        constructor(_position, _velocity) {
             this.position = _position;
+            this.velocity = _velocity;
         }
         draw(_position) {
             console.log("Boat", _position);
@@ -93,7 +101,9 @@ var StrandClasses;
             StrandClasses.crc2.fillStyle = "#ebe4c7";
             StrandClasses.crc2.fill();
         }
-        swimm() {
+        swimm(_velocity) {
+            console.log("Boat swimm");
+            this.position.x += this.velocity * (+1.5);
         }
     }
     StrandClasses.Boat = Boat;

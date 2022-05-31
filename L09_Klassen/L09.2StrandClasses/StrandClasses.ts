@@ -1,15 +1,17 @@
 namespace StrandClasses {
-    export interface Vector {
+    export class Vector {
         x: number;
         y: number;
     }
 
     export class Sun {
         position: Vector;
-        speed: number;
+        velocity: number;
 
-        constructor(_position: Vector) {
+
+        constructor(_position: Vector, _velocity: number) {
             this.position = _position;
+            this.velocity = _velocity; 
         }
 
         draw(_position: Vector): void {
@@ -28,10 +30,9 @@ namespace StrandClasses {
             crc2.restore();
         }
 
-        sink(): void {
+        sink(_velocity: number): void {
             console.log("Sink!");
-             this.x += this.speed * + 1;
-
+            this.position.x += this.velocity * (10);
         }
     }
 
@@ -79,9 +80,11 @@ namespace StrandClasses {
 
     export class Boat {
         position: Vector;
+        velocity: number;
 
-        constructor(_position: Vector) {
+        constructor(_position: Vector, _velocity: number) {
             this.position = _position;
+            this.velocity = _velocity;
         }
 
         draw(_position: Vector): void {
@@ -122,8 +125,9 @@ namespace StrandClasses {
             crc2.fill();
         }
 
-        swimm(): void {
-
+        swimm(_velocity: number): void {
+            console.log("Boat swimm");
+            this.position.x += this.velocity * (+1.5) ;       
         }
     }
 

@@ -5,18 +5,18 @@ namespace StrandClasses {
     export let width: number;
     export let crc2: CanvasRenderingContext2D;
     let horizon: number;
+    let imgData: ImageData;
 
-    let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100) });
+    let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100)}, 20);
     let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 });
     let cloud2: Cloud = new Cloud({ x: 200, y: 70 }, { x: 100, y: 150 });
-    let boat: Boat = new Boat({ x: getRandom(230, 290), y: horizon + 10 });
+    let boat: Boat = new Boat({ x: getRandom(230, 290), y: horizon + 10 }, 100);
     let volcano: StrandClasses.Vulcano = new StrandClasses.Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
     let bird: Bird = new Bird({ x: 60, y: 100 });
     let jellyfish: Jellyfish = new Jellyfish({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "yellow");
     let palme: Palme = new Palme({x: 100, y: 100});
     let person: Person = new Person({x: 100, y: 200}, "brown", "red", "white");
     let surferi: Surferi = new Surferi({x: 100, y: 200}, "brown", "red", "yellow");
-
 
     window.addEventListener("load", handleLoad);
 
@@ -32,16 +32,19 @@ namespace StrandClasses {
 
         
         drawBackground();
+        drawSea();
+        drawBeach({ x: width / 2 - 50, y: horizon }, 100);
+        drawMountains({ x: 0, y: horizon }, 15, 30, "darkgrey", "white", width / 2 - 20);
+        drawMountains({ x: 0, y: horizon }, 10, 20, "darkgrey", "green", width / 2);
+        drawTrees({ x: 40, y: 100 }, { x: 90, y: 10 });
+
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+
         newSun.draw({ x: 250, y: getRandom(30, 100) });
         cloud1.draw({ x: 100, y: 50 }, { x: 70, y: 60 });
         cloud2.draw({ x: 200, y: 70 }, { x: 100, y: 150 });
         boat.draw({ x: getRandom(230, 290), y: horizon + 10 });
-        drawSea();
-        drawBeach({ x: width / 2 - 50, y: horizon }, 100);
         volcano.draw({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
-        drawMountains({ x: 0, y: horizon }, 15, 30, "darkgrey", "white", width / 2 - 20);
-        drawMountains({ x: 0, y: horizon }, 10, 20, "darkgrey", "green", width / 2);
-        drawTrees({ x: 40, y: 100 }, { x: 90, y: 10 });
         bird.draw({ x: 60, y: 100 });
         jellyfish.draw({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "orange");
         jellyfish.draw({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "red");
@@ -52,8 +55,21 @@ namespace StrandClasses {
         person.draw({x: 100, y: 200}, "orange", "green", "");
         surferi.draw({x: 100, y: 200}, "orange", "red", "orange");
         surferi.draw({x: 100, y: 200}, "black", "red", "yellow");
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         canvas.addEventListener("click", handleClick);
+    }
+
+    function handleClick(_event: Event): void {
+        console.log("Click");
+        crc2.putImageData(imgData, 0, 0); 
+
+        jellyfish.swim();
+        volcano.explode();
+        person.move();
+        cloud1.fly();
+        newSun.sink(20);
+        boat.swimm(100);
     }
 
     function drawBackground(): void {
@@ -161,17 +177,6 @@ namespace StrandClasses {
 
         }
         crc2.restore();
-    }
-
-    function handleClick(_event: Event): void {
-        console.log("Click");
-
-        jellyfish.swim();
-        volcano.explode();
-        person.move();
-        cloud1.fly();
-        newSun.sink();
-        boat.swimm();
     }
 
     export function getRandom(_min: number, _max: number): number {
