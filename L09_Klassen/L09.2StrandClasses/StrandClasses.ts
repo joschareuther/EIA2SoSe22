@@ -6,16 +6,15 @@ namespace StrandClasses {
 
     export class Sun {
         position: Vector;
-        velocity: number;
+        dy: number;
 
-
-        constructor(_position: Vector, _velocity: number) {
+        constructor(_position: Vector, _dy: number) {
             this.position = _position;
-            this.velocity = _velocity; 
+            this.dy = _dy; 
         }
 
-        draw(_position: Vector): void {
-            console.log("Sun", _position);
+        draw(): void {
+            console.log("Sun");
 
             let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 12, 0, 0, 50);
 
@@ -23,30 +22,36 @@ namespace StrandClasses {
             gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0");
 
             crc2.save();
-            crc2.translate(_position.x, _position.y);
+            crc2.translate(this.position.x, this.position.y);
             crc2.fillStyle = gradient;
             crc2.arc(0, 0, 50, 0, 2 * Math.PI);
             crc2.fill();
             crc2.restore();
         }
 
-        sink(_velocity: number): void {
+        sink(): void {
             console.log("Sink!");
-            this.position.x += this.velocity * (10);
+            this.position.y += this.dy;
+            if (this.position.y - 50 > height || this.position.y + 50 < 0) {
+                this.dy = - this.dy;
+            }
+
         }
     }
 
     export class Cloud {
         position: Vector;
         size: Vector;
+        dx: number;
 
-        constructor(_position: Vector, _size: Vector) {
+        constructor(_position: Vector, _size: Vector, _dx: number) {
             this.position = _position;
             this.size = _size;
+            this.dx = _dx;
         }
 
-        draw(_position: Vector, _size: Vector): void {
-            console.log("Cloud", _position, _size);
+        draw(): void {
+            console.log("Cloud", this.position, this.size);
             let nParticles: number = 20;
             let radiusParticle: number = 20;
             let particle: Path2D = new Path2D();
@@ -57,13 +62,13 @@ namespace StrandClasses {
             gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0");
 
             crc2.save();
-            crc2.translate(_position.x, _position.y);
+            crc2.translate(this.position.x, this.position.y);
             crc2.fillStyle = gradient;
 
             for (let drawn: number = 0; drawn < nParticles; drawn++) {
                 crc2.save();
-                let x: number = (Math.random() - 0.5) * _size.x;
-                let y: number = - (Math.random() * _size.y);
+                let x: number = (Math.random() - 0.5) * this.size.x;
+                let y: number = - (Math.random() * this.size.y);
                 crc2.translate(x, y);
                 crc2.fill(particle);
                 crc2.restore();
@@ -75,32 +80,37 @@ namespace StrandClasses {
 
         fly(): void {
             console.log("Wolke fliegt!");
+            this.position.x += this.dx;
+            if (this.position.x > height || this.position.x < 0) {
+                this.dx = - this.dx;
+            }
+
         }
     }
 
     export class Boat {
         position: Vector;
-        velocity: number;
+        dx: number;
 
-        constructor(_position: Vector, _velocity: number) {
+        constructor(_position: Vector, _dx: number) {
             this.position = _position;
-            this.velocity = _velocity;
+            this.dx = _dx;
         }
 
-        draw(_position: Vector): void {
-            console.log("Boat", _position);
+        draw(): void {
+            console.log("Boat", this.position);
 
 
             crc2.beginPath();
-            crc2.moveTo(_position.x - 10, _position.y);
-            crc2.lineTo(_position.x - 10, _position.y - 40);
+            crc2.moveTo(this.position.x - 10, this.position.y);
+            crc2.lineTo(this.position.x - 10, this.position.y - 40);
             crc2.stroke();
 
             crc2.beginPath();
-            crc2.moveTo(_position.x + 0, _position.y + 0);
-            crc2.lineTo(_position.x + 10, _position.y - 20);
-            crc2.lineTo(_position.x - 40, _position.y - 20);
-            crc2.lineTo(_position.x - 30, _position.y);
+            crc2.moveTo(this.position.x + 0, this.position.y + 0);
+            crc2.lineTo(this.position.x + 10, this.position.y - 20);
+            crc2.lineTo(this.position.x - 40, this.position.y - 20);
+            crc2.lineTo(this.position.x - 30, this.position.y);
             crc2.closePath();
             crc2.stroke();
 
@@ -108,26 +118,29 @@ namespace StrandClasses {
             crc2.fill();
 
             crc2.fillStyle = "lightgrey";
-            crc2.fillRect(_position.x - 30, _position.y - 17, 3, 4);
-            crc2.fillRect(_position.x, _position.y - 17, 3, 4);
-            crc2.fillRect(_position.x - 25, _position.y - 17, 3, 4);
-            crc2.fillRect(_position.x - 20, _position.y - 17, 3, 4);
-            crc2.fillRect(_position.x - 15, _position.y - 17, 3, 4);
-            crc2.fillRect(_position.x - 10, _position.y - 17, 3, 4);
+            crc2.fillRect(this.position.x - 30, this.position.y - 17, 3, 4);
+            crc2.fillRect(this.position.x, this.position.y - 17, 3, 4);
+            crc2.fillRect(this.position.x - 25, this.position.y - 17, 3, 4);
+            crc2.fillRect(this.position.x - 20, this.position.y - 17, 3, 4);
+            crc2.fillRect(this.position.x - 15, this.position.y - 17, 3, 4);
+            crc2.fillRect(this.position.x - 10, this.position.y - 17, 3, 4);
 
             crc2.beginPath();
-            crc2.moveTo(_position.x - 10, _position.y - 20);
-            crc2.lineTo(_position.x, _position.y - 25);
-            crc2.lineTo(_position.x - 10, _position.y - 40);
+            crc2.moveTo(this.position.x - 10, this.position.y - 20);
+            crc2.lineTo(this.position.x, this.position.y - 25);
+            crc2.lineTo(this.position.x - 10, this.position.y - 40);
             crc2.closePath();
             crc2.stroke();
             crc2.fillStyle = "#ebe4c7";
             crc2.fill();
         }
 
-        swimm(_velocity: number): void {
-            console.log("Boat swimm");
-            this.position.x += this.velocity * (+1.5) ;       
+        swimm(): void {
+            console.log("Boat swimm!");
+            this.position.x += this.dx;
+            if (this.position.x > height || this.position.x < 0) {
+                this.dx = - this.dx;
+            } 
         }
     }
 
@@ -227,27 +240,27 @@ namespace StrandClasses {
             this.feathercolor = _feathercolor;
         }
 
-        draw(_position: Vector, _color: string, _clothingcolor: string, _feathercolor: string): void {
+        draw(): void {
             console.log("Person");
             let x: number;
             let y: number;
 
-            crc2.fillStyle = _clothingcolor;
+            crc2.fillStyle = this.clothingcolor;
             crc2.fillRect(x = getRandom(5, 160), y = getRandom(120, 140), 8, 10);
 
             crc2.beginPath();
             crc2.arc(x - 12, y, 15, Math.PI * 2, Math.PI * 1.7, true);
-            crc2.fillStyle = _feathercolor;
+            crc2.fillStyle = this.feathercolor;
             crc2.fill();
 
             crc2.beginPath();
             crc2.arc(x + 4, y - 2, 5, 0, Math.PI * 2, true);
-            crc2.fillStyle = _color;
+            crc2.fillStyle = this.color;
             crc2.fill();
         }
 
         move(): void {
-            console.log("MEnschi läuft!");
+            console.log("Menschi läuft!");
         }
     }
 
@@ -264,7 +277,7 @@ namespace StrandClasses {
             this.surfboardcolor = _surfboardcolor;
         }
 
-        draw(_position: Vector, _color: string, _clothingcolor: string, _surfboardcolor: string): void {
+        draw(): void {
             console.log("Surferi");
             let x: number;
             let y: number;
@@ -272,7 +285,7 @@ namespace StrandClasses {
             crc2.beginPath();
             crc2.ellipse(x = getRandom(100, 160), y = getRandom(100, 120), 3, 10, 20, 0, 2 * Math.PI);
             crc2.stroke();
-            crc2.fillStyle = _surfboardcolor;
+            crc2.fillStyle = this.surfboardcolor;
             crc2.fill();
 
             crc2.save();
@@ -289,7 +302,7 @@ namespace StrandClasses {
 
             crc2.beginPath();
             crc2.arc(x, y - 12, 5, 0, Math.PI * 2, true);
-            crc2.fillStyle = _color;
+            crc2.fillStyle = this.color;
             crc2.fill();
 
         }
@@ -310,7 +323,7 @@ namespace StrandClasses {
 
         }
 
-        draw(_position: Vector, _color: string): void {
+        draw(): void {
             console.log("Jellyfish");
             let horizon: number = height * golden;
             let x: number;
@@ -323,7 +336,7 @@ namespace StrandClasses {
             crc2.closePath();
             crc2.stroke();
 
-            crc2.fillStyle = _color;
+            crc2.fillStyle = this.color;
             crc2.fill();
 
             crc2.beginPath();
@@ -353,7 +366,7 @@ namespace StrandClasses {
             this.position = _position;
         }
 
-        draw(_position: Vector): void {
+        draw(): void {
             console.log("Palme");
             let x: number;
             let y: number;
@@ -401,7 +414,7 @@ namespace StrandClasses {
             this.position = _position;
         }
 
-        draw(_position: Vector): void {
+        draw(): void {
             console.log("Birds");
             let horizon: number = height * golden;
 
