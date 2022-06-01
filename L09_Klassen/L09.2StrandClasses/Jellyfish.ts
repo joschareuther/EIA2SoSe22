@@ -3,24 +3,24 @@ namespace StrandClasses {
     export class Jellyfish {
         position: Vector;
         color: string;
+        dx: number;
 
 
-        constructor(_position: Vector, _color: string) {
+        constructor(_position: Vector, _color: string, _dx: number) {
             this.position = _position;
             this.color = _color;
-
+            this.dx = _dx;
         }
 
         draw(): void {
-            console.log("Jellyfish");
-            let horizon: number = height * golden;
-            let x: number;
-            let y: number;
+            console.log("Jellyfish", this.position.y, this.position.x);
+            let x: number = this.position.x;
+            let y: number = this.position.y;
 
             crc2.save();
             crc2.translate(0, 0);
             crc2.beginPath();
-            crc2.arc(x = getRandom(180, 280), y = getRandom(horizon + 30, horizon + 50), getRandom(4, 7), 3, 6);
+            crc2.arc(x, y, 6, 3, 6);
             crc2.closePath();
             crc2.stroke();
 
@@ -41,10 +41,13 @@ namespace StrandClasses {
         }
 
 
-
-
         swim(): void {
-            console.log("Jellyfish swim!");
+            console.log("Jellyfish swim!", this.position.x);
+            this.position.x += 5;
+            this.draw();
+            if (this.position.x > width || this.position.x < 0) {
+                this.dx = - this.dx;
+            }
         }
     }
 }

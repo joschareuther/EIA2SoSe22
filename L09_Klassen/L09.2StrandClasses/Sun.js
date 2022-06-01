@@ -20,9 +20,10 @@ var StrandClasses;
             StrandClasses.crc2.restore();
         }
         sink() {
-            console.log("Sink!");
-            this.position.y += this.dy;
-            if (this.position.y - 50 > StrandClasses.height || this.position.y + 50 < 0) {
+            console.log("Sink!", this.position.y);
+            this.position.y += 5;
+            this.draw();
+            if (this.position.y > StrandClasses.height || this.position.y < 0) {
                 this.dy = -this.dy;
             }
         }

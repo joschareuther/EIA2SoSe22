@@ -26,12 +26,12 @@ namespace StrandClasses {
         }
 
         sink(): void {
-            console.log("Sink!");
-            this.position.y += this.dy;
-            if (this.position.y - 50 > height || this.position.y + 50 < 0) {
+            console.log("Sink!", this.position.y);
+            this.position.y += 5;
+            this.draw();
+            if (this.position.y > height || this.position.y < 0) {
                 this.dy = - this.dy;
             }
-
         }
     }
 }

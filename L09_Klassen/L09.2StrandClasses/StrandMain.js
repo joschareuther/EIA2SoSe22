@@ -6,13 +6,13 @@ var StrandClasses;
     let horizon;
     let imgData;
     //Instanzierung der Objekte//
-    let newSun = new StrandClasses.Sun({ x: 250, y: getRandom(30, 100) }, 20);
+    let newSun = new StrandClasses.Sun({ x: 250, y: getRandom(30, 100) }, 2);
     let cloud1 = new StrandClasses.Cloud({ x: 100, y: 50 }, { x: 70, y: 60 }, 15);
     let cloud2 = new StrandClasses.Cloud({ x: 200, y: 70 }, { x: 100, y: 150 }, 10);
-    let boat = new StrandClasses.Boat({ x: getRandom(230, 290), y: horizon + 10 }, 100);
+    let boat = new StrandClasses.Boat({ x: getRandom(230, 290), y: horizon + 10 }, 2);
     let volcano = new StrandClasses.Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
-    let bird = new StrandClasses.Bird({ x: 60, y: 100 });
-    let jellyfish = new StrandClasses.Jellyfish({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "red");
+    let bird = new StrandClasses.Bird({ x: 60, y: 100 }, 2);
+    let jellyfish = new StrandClasses.Jellyfish({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "red", 2);
     let palme = new StrandClasses.Palme({ x: 100, y: 100 });
     let person = new StrandClasses.Person({ x: 100, y: 200 }, "brown", "green", "white");
     let surferi = new StrandClasses.Surferi({ x: 100, y: 200 }, "brown", "red", "yellow");
@@ -28,19 +28,16 @@ var StrandClasses;
         horizon = StrandClasses.height * StrandClasses.golden;
         drawBackground();
         newSun.draw();
-        boat.draw();
         drawSea();
         drawBeach({ x: StrandClasses.width / 2 - 50, y: horizon }, 100);
         volcano.draw({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
         drawMountains({ x: 0, y: horizon }, 15, 30, "darkgrey", "white", StrandClasses.width / 2 - 20);
         drawMountains({ x: 0, y: horizon }, 10, 20, "darkgrey", "green", StrandClasses.width / 2);
         drawTrees({ x: 40, y: 100 }, { x: 90, y: 10 });
+        boat.draw();
         cloud1.draw();
         cloud2.draw();
         bird.draw();
-        jellyfish.draw();
-        jellyfish.draw();
-        jellyfish.draw();
         jellyfish.draw();
         palme.draw();
         person.draw();
@@ -54,13 +51,13 @@ var StrandClasses;
     //ANIMATION START//
     function handleClick(_event) {
         console.log("Click");
+        requestAnimationFrame(frame);
+    }
+    function frame() {
         StrandClasses.crc2.putImageData(imgData, 0, 0);
-        jellyfish.swim();
-        volcano.explode();
-        person.move();
-        cloud1.fly();
         newSun.sink();
-        boat.swimm();
+        bird.fly();
+        jellyfish.swim();
     }
     //Funktionen für den unbewegten Teil des Bildes: Background, Sea, Beach, Mountains, Trees)
     function drawBackground() {

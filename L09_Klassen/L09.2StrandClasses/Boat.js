@@ -8,7 +8,7 @@ var StrandClasses;
             this.dx = _dx;
         }
         draw() {
-            console.log("Boat", this.position);
+            console.log("Boat", this.position.x, this.position.y);
             StrandClasses.crc2.beginPath();
             StrandClasses.crc2.moveTo(this.position.x - 10, this.position.y);
             StrandClasses.crc2.lineTo(this.position.x - 10, this.position.y - 40);
@@ -41,7 +41,7 @@ var StrandClasses;
         swimm() {
             console.log("Boat swimm!");
             this.position.x += this.dx;
-            if (this.position.x > StrandClasses.height || this.position.x < 0) {
+            if (this.position.x > StrandClasses.width || this.position.x < 0) {
                 this.dx = -this.dx;
             }
         }

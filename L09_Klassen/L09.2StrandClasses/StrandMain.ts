@@ -1,6 +1,6 @@
 namespace StrandClasses {
-//Bei mir funktioniert die Animation leider noch nicht!//
-//Generelle Variablen//
+    //Bei mir funktioniert die Animation leider noch nicht!//
+    //Generelle Variablen//
     export let golden: number = 0.62;
     export let height: number;
     export let width: number;
@@ -9,20 +9,20 @@ namespace StrandClasses {
     let imgData: ImageData;
 
 
-    
-//Instanzierung der Objekte//
-    let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100)}, 20);
+
+    //Instanzierung der Objekte//
+    let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100) }, 2);
     let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 }, 15);
     let cloud2: Cloud = new Cloud({ x: 200, y: 70 }, { x: 100, y: 150 }, 10);
-    let boat: Boat = new Boat({ x: getRandom(230, 290), y: horizon + 10 }, 100);
-    let volcano: StrandClasses.Vulcano = new StrandClasses.Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
-    let bird: Bird = new Bird({ x: 60, y: 100 });
-    let jellyfish: Jellyfish = new Jellyfish({ x : getRandom(180, 280), y : getRandom(horizon + 30, horizon + 50)}, "red");
-    let palme: Palme = new Palme({x: 100, y: 100});
-    let person: Person = new Person({x: 100, y: 200}, "brown", "green", "white");
-    let surferi: Surferi = new Surferi({x: 100, y: 200}, "brown", "red", "yellow");
+    let boat: Boat = new Boat({x: getRandom(230, 290), y: horizon + 10 }, 2);
+    let volcano: Vulcano = new Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
+    let bird: Bird = new Bird({ x: 60, y: 100 }, 2);
+    let jellyfish: Jellyfish = new Jellyfish({ x: getRandom(180, 280), y: getRandom(horizon + 30, horizon + 50) }, "red", 2);
+    let palme: Palme = new Palme({ x: 100, y: 100 });
+    let person: Person = new Person({ x: 100, y: 200 }, "brown", "green", "white");
+    let surferi: Surferi = new Surferi({ x: 100, y: 200 }, "brown", "red", "yellow");
 
-//START//
+    //START//
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
@@ -34,23 +34,19 @@ namespace StrandClasses {
         height = canvas.height;
         width = canvas.width;
         horizon = height * golden;
-        
         drawBackground();
         newSun.draw();
-        boat.draw();
         drawSea();
         drawBeach({ x: width / 2 - 50, y: horizon }, 100);
         volcano.draw({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
         drawMountains({ x: 0, y: horizon }, 15, 30, "darkgrey", "white", width / 2 - 20);
         drawMountains({ x: 0, y: horizon }, 10, 20, "darkgrey", "green", width / 2);
         drawTrees({ x: 40, y: 100 }, { x: 90, y: 10 });
+        boat.draw();
 
         cloud1.draw();
         cloud2.draw();
         bird.draw();
-        jellyfish.draw();
-        jellyfish.draw();
-        jellyfish.draw();
         jellyfish.draw();
         palme.draw();
         person.draw();
@@ -61,22 +57,25 @@ namespace StrandClasses {
         //Speichern des Canvas-Bildes//
         imgData = crc2.getImageData(0, 0, width, height);
 
+
         canvas.addEventListener("click", handleClick);
     }//Close Load-Funktion//
 
-//ANIMATION START//
+    //ANIMATION START//
     function handleClick(_event: Event): void {
         console.log("Click");
-        crc2.putImageData(imgData, 0, 0); 
-
-        jellyfish.swim();
-        volcano.explode();
-        person.move();
-        cloud1.fly();
-        newSun.sink();
-        boat.swimm();
+        requestAnimationFrame(frame);
     }
-//Funktionen für den unbewegten Teil des Bildes: Background, Sea, Beach, Mountains, Trees)
+
+    function frame(): void {
+        crc2.putImageData(imgData, 0, 0);
+        newSun.sink();
+        bird.fly();
+        jellyfish.swim();
+    }
+
+
+    //Funktionen für den unbewegten Teil des Bildes: Background, Sea, Beach, Mountains, Trees)
     function drawBackground(): void {
         console.log("Background");
         console.log(golden);
@@ -90,8 +89,6 @@ namespace StrandClasses {
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, width, height);
     }
-
-
 
     function drawSea(): void {
         console.log("Sea");
@@ -183,7 +180,7 @@ namespace StrandClasses {
         }
         crc2.restore();
     }
-//Funktion für die Zufallszahl//
+    //Funktion für die Zufallszahl//
     export function getRandom(_min: number, _max: number): number {
         let random: number = Math.floor(Math.random() * (_max - _min + 1)) + _min;
         return random;
