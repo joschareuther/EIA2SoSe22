@@ -12,8 +12,8 @@ namespace StrandClasses {
 
     //Instanzierung der Objekte//
     let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100) }, 2);
-    let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 }, 15);
-    let cloud2: Cloud = new Cloud({ x: 200, y: 70 }, { x: 100, y: 150 }, 10);
+    let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 }, 1);
+    let cloud2: Cloud = new Cloud({ x: 200, y: 70 }, { x: 100, y: 150 }, 2);
     let boat: Boat = new Boat({x: getRandom(230, 290), y: horizon + 10 }, 2);
     let volcano: Vulcano = new Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
     let bird: Bird = new Bird({ x: 60, y: 100 }, 2);
@@ -72,6 +72,8 @@ namespace StrandClasses {
         newSun.sink();
         bird.fly();
         jellyfish.swim();
+        cloud1.fly();
+        cloud2.fly();
         requestAnimationFrame(frame);
     }
 

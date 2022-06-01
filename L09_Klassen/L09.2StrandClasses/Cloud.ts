@@ -42,7 +42,8 @@ namespace StrandClasses {
         fly(): void {
             console.log("Wolke fliegt!");
             this.position.x += this.dx;
-            if (this.position.x > height || this.position.x < 0) {
+            this.draw();
+            if (this.position.x > width || this.position.x < 0) {
                 this.dx = - this.dx;
             }
 

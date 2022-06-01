@@ -34,7 +34,8 @@ var StrandClasses;
         fly() {
             console.log("Wolke fliegt!");
             this.position.x += this.dx;
-            if (this.position.x > StrandClasses.height || this.position.x < 0) {
+            this.draw();
+            if (this.position.x > StrandClasses.width || this.position.x < 0) {
                 this.dx = -this.dx;
             }
         }

@@ -7,8 +7,8 @@ var StrandClasses;
     let imgData;
     //Instanzierung der Objekte//
     let newSun = new StrandClasses.Sun({ x: 250, y: getRandom(30, 100) }, 2);
-    let cloud1 = new StrandClasses.Cloud({ x: 100, y: 50 }, { x: 70, y: 60 }, 15);
-    let cloud2 = new StrandClasses.Cloud({ x: 200, y: 70 }, { x: 100, y: 150 }, 10);
+    let cloud1 = new StrandClasses.Cloud({ x: 100, y: 50 }, { x: 70, y: 60 }, 1);
+    let cloud2 = new StrandClasses.Cloud({ x: 200, y: 70 }, { x: 100, y: 150 }, 2);
     let boat = new StrandClasses.Boat({ x: getRandom(230, 290), y: horizon + 10 }, 2);
     let volcano = new StrandClasses.Vulcano({ x: getRandom(-30, 20), y: horizon }, 40, 50, "brown", "white", { x: 20, y: 20 });
     let bird = new StrandClasses.Bird({ x: 60, y: 100 }, 2);
@@ -58,6 +58,8 @@ var StrandClasses;
         newSun.sink();
         bird.fly();
         jellyfish.swim();
+        cloud1.fly();
+        cloud2.fly();
         requestAnimationFrame(frame);
     }
     //Funktionen für den unbewegten Teil des Bildes: Background, Sea, Beach, Mountains, Trees)
