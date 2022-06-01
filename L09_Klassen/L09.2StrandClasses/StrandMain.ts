@@ -8,6 +8,8 @@ namespace StrandClasses {
     let horizon: number;
     let imgData: ImageData;
 
+
+    
 //Instanzierung der Objekte//
     let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100)}, 20);
     let cloud1: Cloud = new Cloud({ x: 100, y: 50 }, { x: 70, y: 60 }, 15);
