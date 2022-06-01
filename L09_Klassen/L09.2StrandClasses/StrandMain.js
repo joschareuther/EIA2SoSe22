@@ -58,6 +58,7 @@ var StrandClasses;
         newSun.sink();
         bird.fly();
         jellyfish.swim();
+        requestAnimationFrame(frame);
     }
     //Funktionen für den unbewegten Teil des Bildes: Background, Sea, Beach, Mountains, Trees)
     function drawBackground() {

@@ -72,6 +72,7 @@ namespace StrandClasses {
         newSun.sink();
         bird.fly();
         jellyfish.swim();
+        requestAnimationFrame(frame);
     }
 
 
