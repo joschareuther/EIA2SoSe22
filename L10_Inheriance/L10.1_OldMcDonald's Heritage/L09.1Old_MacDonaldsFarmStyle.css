@@ -1,0 +1,109 @@
+h1{
+    position: absolute;
+    color: rgb(159, 98, 40);
+    font-style: oblique;
+    font-size: 20px;
+    top: 0px;
+    left: 50px;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(190, 126, 14, 0.384);
+}
+
+#Cow {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    background-color: rgba(0, 255, 38, 0.312);
+}
+
+#Chicken {
+    position: absolute;
+    top: 50px;
+    left: 350px;
+    width: 300px;
+    background-color: rgba(0, 255, 38, 0.312);
+}
+
+#Dog {
+    position: absolute;
+    top: 50px;
+    left: 650px;
+    width: 300px;
+    background-color: rgba(0, 255, 38, 0.312);
+}
+
+#Pig {
+    position: absolute;
+    top: 50px;
+    left: 950px;
+    width: 300px;
+    background-color: rgba(0, 255, 38, 0.312);
+}
+
+#textgras {
+    position: absolute;
+    color: rgb(255, 247, 141);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    top: 200px;
+    left: 50px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(128, 102, 21, 0.199);
+}
+
+#corntext {
+    position: absolute;
+    color: rgb(255, 247, 141);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    top: 200px;
+    left: 350px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(128, 102, 21, 0.199);
+}
+
+#meattext {
+    position: absolute;
+    color: rgb(255, 247, 141);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    top: 200px;
+    left: 650px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(128, 102, 21, 0.199);
+}
+
+#appletext {
+    position: absolute;
+    color: rgb(255, 247, 141);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    top: 200px;
+    left: 950px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(128, 102, 21, 0.199);
+}
+
+#songText {
+    position: absolute;
+    color: rgb(75, 65, 51);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px;
+    top: 400px;
+    left: 150px;
+    width: 1000px;
+    height: 100px;
+    text-align: center;
+    background-color: rgba(128, 80, 21, 0.463);
+}
