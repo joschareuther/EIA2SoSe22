@@ -3,32 +3,34 @@ namespace OldMacDonaldsFarm {
     export class Animal {
         species: string;
         food: string;
+        amount: number;
         sound: string;
 
-        constructor(_species: string, _food: string, _sound: string) {
+        constructor(_species: string, _food: string, _amount: number, _sound: string) {
             this.species = _species;
             this.food = _food;
+            this.amount = _amount;
             this.sound = _sound;
         }
 
         eat(): void {
             switch (this.food) {
                 case "gras":
-                    gras -= 1;
+                    gras -= this.amount;
                     if (gras < 0) {
                         gras = 0;
                         alert("gras is empty\n McDonald muss neues Gras für die Kuh kaufen!");
                     }
                     break;
                 case "corn":
-                    corn -= 1;
+                    corn -= this.amount;
                     if (corn < 0) {
                         corn = 0;
                         alert("corn is empty\n McDonald muss neues Korn für die Hühner kaufen!");
                     }
                     break;
                 case "meat":
-                    meat -= 1;
+                    meat -= this.amount;
                     if (meat < 0) {
                         meat = 0;
                         alert("meat is empty\n McDonald muss neues Fleisch für den Hund kaufen!");
@@ -36,7 +38,7 @@ namespace OldMacDonaldsFarm {
                     break;
 
                 case "apple":
-                    apple -= 1;
+                    apple -= this.amount;
                     if (apple < 0) {
                         apple = 0;
                         alert("apple is empty\n McDonald muss neue Äpfel für die Schweine kaufen!");

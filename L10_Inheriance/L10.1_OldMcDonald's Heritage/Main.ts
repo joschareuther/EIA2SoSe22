@@ -140,21 +140,21 @@ namespace OldMacDonaldsFarm {
         let meatstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("meatstorage");
         let applestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("applestorage");
 
-        gras = 6;
+        gras = 12;
         grasstorage.innerHTML = String(gras);
         corn = 7;
         cornstorage.innerHTML = String(corn);
-        meat = 4;
+        meat = 11;
         meatstorage.innerHTML = String(meat);
-        apple = 8;
+        apple = 16;
         applestorage.innerHTML = String(apple);
 
 
         //neue Tiere
-        let newCow: Animal = new Animal("cow", "gras", "Moww");
-        let newChicken: Animal = new Animal("chicken", "corn", "Gack");
-        let newDog: Animal = new Animal("dog", "meat", "Woof");
-        let newPig: Animal = new Animal("pig", "apple", "Oink");
+        let newCow: Animal = new Animal("cow", "gras", 2, "Moww");
+        let newChicken: Animal = new Animal("chicken", "corn", 1, "Gack");
+        let newDog: Animal = new Animal("dog", "meat", 2, "Woof");
+        let newPig: Animal = new Animal("pig", "apple", 4, "Oink");
 
         //Alerts
         cow.addEventListener("click", coweatandsing);

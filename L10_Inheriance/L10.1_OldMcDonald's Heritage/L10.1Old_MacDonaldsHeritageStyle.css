@@ -13,34 +13,34 @@ h1{
 
 #Cow {
     position: absolute;
-    top: 50px;
+    top: 63px;
     left: 50px;
     width: 300px;
-    background-color: rgba(0, 255, 38, 0.312);
+    background-color: rgba(27, 143, 44, 0.711);
 }
 
 #Chicken {
     position: absolute;
-    top: 50px;
+    top: 63px;
     left: 350px;
     width: 300px;
-    background-color: rgba(0, 255, 38, 0.312);
+    background-color: rgba(27, 143, 44, 0.711);
 }
 
 #Dog {
     position: absolute;
-    top: 50px;
+    top: 63px;
     left: 650px;
     width: 300px;
-    background-color: rgba(0, 255, 38, 0.312);
+    background-color: rgba(27, 143, 44, 0.711);
 }
 
 #Pig {
     position: absolute;
-    top: 50px;
+    top: 63px;
     left: 950px;
     width: 300px;
-    background-color: rgba(0, 255, 38, 0.312);
+    background-color: rgba(27, 143, 44, 0.711);
 }
 
 #textgras {
@@ -53,7 +53,7 @@ h1{
     width: 300px;
     height: 50px;
     text-align: center;
-    background-color: rgba(128, 102, 21, 0.199);
+    background-color: rgba(128, 101, 21, 0.364);
 }
 
 #corntext {
@@ -66,7 +66,7 @@ h1{
     width: 300px;
     height: 50px;
     text-align: center;
-    background-color: rgba(128, 102, 21, 0.199);
+    background-color: rgba(128, 101, 21, 0.364);
 }
 
 #meattext {
@@ -79,7 +79,7 @@ h1{
     width: 300px;
     height: 50px;
     text-align: center;
-    background-color: rgba(128, 102, 21, 0.199);
+    background-color: rgba(128, 101, 21, 0.364);
 }
 
 #appletext {
@@ -92,7 +92,7 @@ h1{
     width: 300px;
     height: 50px;
     text-align: center;
-    background-color: rgba(128, 102, 21, 0.199);
+    background-color: rgba(128, 101, 21, 0.364);
 }
 
 #songText {
@@ -106,4 +106,17 @@ h1{
     height: 100px;
     text-align: center;
     background-color: rgba(128, 80, 21, 0.463);
+}
+
+#description {
+    position: absolute;
+    color: rgb(75, 65, 51);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px;
+    top: 600px;
+    left: 150px;
+    width: 1000px;
+    height: 100px;
+    text-align: center;
+    background-color: rgba(24, 144, 24, 0.748);
 }

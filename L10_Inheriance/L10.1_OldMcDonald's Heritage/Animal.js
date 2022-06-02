@@ -3,37 +3,39 @@ var OldMacDonaldsFarm;
     class Animal {
         species;
         food;
+        amount;
         sound;
-        constructor(_species, _food, _sound) {
+        constructor(_species, _food, _amount, _sound) {
             this.species = _species;
             this.food = _food;
+            this.amount = _amount;
             this.sound = _sound;
         }
         eat() {
             switch (this.food) {
                 case "gras":
-                    OldMacDonaldsFarm.gras -= 1;
+                    OldMacDonaldsFarm.gras -= this.amount;
                     if (OldMacDonaldsFarm.gras < 0) {
                         OldMacDonaldsFarm.gras = 0;
                         alert("gras is empty\n McDonald muss neues Gras für die Kuh kaufen!");
                     }
                     break;
                 case "corn":
-                    OldMacDonaldsFarm.corn -= 1;
+                    OldMacDonaldsFarm.corn -= this.amount;
                     if (OldMacDonaldsFarm.corn < 0) {
                         OldMacDonaldsFarm.corn = 0;
                         alert("corn is empty\n McDonald muss neues Korn für die Hühner kaufen!");
                     }
                     break;
                 case "meat":
-                    OldMacDonaldsFarm.meat -= 1;
+                    OldMacDonaldsFarm.meat -= this.amount;
                     if (OldMacDonaldsFarm.meat < 0) {
                         OldMacDonaldsFarm.meat = 0;
                         alert("meat is empty\n McDonald muss neues Fleisch für den Hund kaufen!");
                     }
                     break;
                 case "apple":
-                    OldMacDonaldsFarm.apple -= 1;
+                    OldMacDonaldsFarm.apple -= this.amount;
                     if (OldMacDonaldsFarm.apple < 0) {
                         OldMacDonaldsFarm.apple = 0;
                         alert("apple is empty\n McDonald muss neue Äpfel für die Schweine kaufen!");

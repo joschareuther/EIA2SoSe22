@@ -110,19 +110,19 @@ var OldMacDonaldsFarm;
         let cornstorage = document.getElementById("cornstorage");
         let meatstorage = document.getElementById("meatstorage");
         let applestorage = document.getElementById("applestorage");
-        OldMacDonaldsFarm.gras = 6;
+        OldMacDonaldsFarm.gras = 12;
         grasstorage.innerHTML = String(OldMacDonaldsFarm.gras);
         OldMacDonaldsFarm.corn = 7;
         cornstorage.innerHTML = String(OldMacDonaldsFarm.corn);
-        OldMacDonaldsFarm.meat = 4;
+        OldMacDonaldsFarm.meat = 11;
         meatstorage.innerHTML = String(OldMacDonaldsFarm.meat);
-        OldMacDonaldsFarm.apple = 8;
+        OldMacDonaldsFarm.apple = 16;
         applestorage.innerHTML = String(OldMacDonaldsFarm.apple);
         //neue Tiere
-        let newCow = new OldMacDonaldsFarm.Animal("cow", "gras", "Moww");
-        let newChicken = new OldMacDonaldsFarm.Animal("chicken", "corn", "Gack");
-        let newDog = new OldMacDonaldsFarm.Animal("dog", "meat", "Woof");
-        let newPig = new OldMacDonaldsFarm.Animal("pig", "apple", "Oink");
+        let newCow = new OldMacDonaldsFarm.Animal("cow", "gras", 2, "Moww");
+        let newChicken = new OldMacDonaldsFarm.Animal("chicken", "corn", 1, "Gack");
+        let newDog = new OldMacDonaldsFarm.Animal("dog", "meat", 2, "Woof");
+        let newPig = new OldMacDonaldsFarm.Animal("pig", "apple", 4, "Oink");
         //Alerts
         cow.addEventListener("click", coweatandsing);
         function coweatandsing() {
