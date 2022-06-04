@@ -19,12 +19,20 @@ h1{
     background-color: rgba(27, 143, 44, 0.711);
 }
 
+#Cow:hover {
+    cursor: pointer;
+}
+
 #Chicken {
     position: absolute;
     top: 63px;
     left: 350px;
     width: 300px;
     background-color: rgba(27, 143, 44, 0.711);
+}
+
+#Chicken:hover {
+    cursor: pointer;
 }
 
 #Dog {
@@ -35,12 +43,19 @@ h1{
     background-color: rgba(27, 143, 44, 0.711);
 }
 
+#Dog:hover {
+    cursor: pointer;
+}
+
 #Pig {
     position: absolute;
     top: 63px;
     left: 950px;
     width: 300px;
     background-color: rgba(27, 143, 44, 0.711);
+}
+#Pig:hover {
+    cursor: pointer;
 }
 
 #textgras {
