@@ -146,3 +146,11 @@ h1{
     text-align: center;
     background-color: rgb(147, 101, 21);
 }
+#actionbutton:hover {
+    background-color: #0099cc;
+    transform: translateX(-3px);
+    cursor: pointer;
+    border: 3px solid #00ff0458;
+    box-shadow: 0 0 60px #00ff1173;
+    background: linear-gradient(140deg, #0044ffab, #0e7512);
+}
