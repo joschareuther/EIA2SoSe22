@@ -1,9 +1,12 @@
-namespace L09_Asteroids {
+namespace L10_Asteroids {
     window.addEventListener("load", handleLoad);
 
     export let crc2: CanvasRenderingContext2D;
 
     let asteroids: Asteroid[] = [];
+    let projectile: Projectile;
+    export let lineWidth: number = 5;
+
 
     function handleLoad(_event: Event): void {
         console.log("Asteroids starting");
@@ -11,8 +14,10 @@ namespace L09_Asteroids {
         if (!canvas)
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+        crc2.lineWidth = lineWidth;
         crc2.fillStyle = "black";
         crc2.strokeStyle = "white";
+
 
         createPaths();
         console.log("Asteroids path: ", asteroidPaths);
@@ -20,12 +25,20 @@ namespace L09_Asteroids {
         createAsteroids(5);
         //createShip();
 
-        //canvas.addEventListener("mousedown", loadLaser);
+        canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);
         //canvas.addEventListener("keypress", handleKeypress);
         //canvas.addEventListener("mousemove", setHeading);
 
         window.setInterval(update, 20);
+    }
+
+    function shootProjectile(_event: MouseEvent): void {
+        console.log("Shoot projectile");
+        let origin: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+        let velocity: Vector = new Vector(0, 0);
+        velocity.random(100, 100);
+        projectile = new Projectile(origin, velocity);
     }
 
     function shootLaser(_event: MouseEvent): void {
@@ -49,7 +62,7 @@ namespace L09_Asteroids {
     function breakAsteroid(_asteroid: Asteroid): void {
         if (_asteroid.size > 0.3) {
             for (let i: number = 0; i < 2; i++) {
-                let fragment: Asteroid = new Asteroid(_asteroid.size / 2, _asteroid.position); 
+                let fragment: Asteroid = new Asteroid(_asteroid.size / 2, _asteroid.position);
                 fragment.velocity.add(_asteroid.velocity);
                 asteroids.push(fragment);
             }
@@ -74,6 +87,9 @@ namespace L09_Asteroids {
             asteroid.move(1 / 50);
             asteroid.draw();
         }
+
+        projectile.move(1 / 50);
+        projectile.draw();
         //ship.draw();
         //handleCollisions();
 

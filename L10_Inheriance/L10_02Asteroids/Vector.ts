@@ -1,4 +1,4 @@
-namespace L09_Asteroids {
+namespace L10_Asteroids {
     export class Vector {
         x: number;
         y: number;
@@ -23,11 +23,14 @@ namespace L09_Asteroids {
         }
 
         random(_minLength: number, _maxLength: number): void {
-        let lenght: number = _minLength + Math.random() * (_maxLength - _minLength);
-        let direction: number = Math.random() * 2 * Math.PI;
+            let lenght: number = _minLength + Math.random() * (_maxLength - _minLength);
+            let direction: number = Math.random() * 2 * Math.PI;
 
-        this.set(Math.cos(direction), Math.sin(direction));
-        this.scale(lenght);
+            this.set(Math.cos(direction), Math.sin(direction));
+            this.scale(lenght);
+        }
+        copy(): Vector {
+            return new Vector(this.x, this.y);
+        }
     }
-}
 }

@@ -1,4 +1,4 @@
-namespace OldMacDonaldsFarm {
+namespace L09_OldMacDonaldsFarm {
     export let gras: number;
     export let corn: number;
     export let meat: number;

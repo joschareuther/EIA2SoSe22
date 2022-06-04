@@ -121,7 +121,7 @@ h1{
     background-color: rgba(24, 144, 24, 0.748);
 }
 
-#action {
+#actionText {
     position: absolute;
     color: rgb(75, 65, 51);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -132,4 +132,17 @@ h1{
     height: 50px;
     text-align: center;
     background-color: rgb(244, 166, 32);
+}
+
+#actionbutton {
+    position: absolute;
+    color: rgb(75, 65, 51);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px;
+    top: 344px;
+    left: 900px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(147, 101, 21);
 }

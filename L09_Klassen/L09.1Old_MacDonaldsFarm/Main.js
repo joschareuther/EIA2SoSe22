@@ -1,5 +1,5 @@
-var OldMacDonaldsFarm;
-(function (OldMacDonaldsFarm) {
+var L09_OldMacDonaldsFarm;
+(function (L09_OldMacDonaldsFarm) {
     window.addEventListener("load", handleLoad);
     let crc2;
     function handleLoad(_event) {
@@ -110,44 +110,44 @@ var OldMacDonaldsFarm;
         let cornstorage = document.getElementById("cornstorage");
         let meatstorage = document.getElementById("meatstorage");
         let applestorage = document.getElementById("applestorage");
-        OldMacDonaldsFarm.gras = 6;
-        grasstorage.innerHTML = String(OldMacDonaldsFarm.gras);
-        OldMacDonaldsFarm.corn = 7;
-        cornstorage.innerHTML = String(OldMacDonaldsFarm.corn);
-        OldMacDonaldsFarm.meat = 4;
-        meatstorage.innerHTML = String(OldMacDonaldsFarm.meat);
-        OldMacDonaldsFarm.apple = 8;
-        applestorage.innerHTML = String(OldMacDonaldsFarm.apple);
+        L09_OldMacDonaldsFarm.gras = 6;
+        grasstorage.innerHTML = String(L09_OldMacDonaldsFarm.gras);
+        L09_OldMacDonaldsFarm.corn = 7;
+        cornstorage.innerHTML = String(L09_OldMacDonaldsFarm.corn);
+        L09_OldMacDonaldsFarm.meat = 4;
+        meatstorage.innerHTML = String(L09_OldMacDonaldsFarm.meat);
+        L09_OldMacDonaldsFarm.apple = 8;
+        applestorage.innerHTML = String(L09_OldMacDonaldsFarm.apple);
         //neue Tiere
-        let newCow = new OldMacDonaldsFarm.Animal("cow", "gras", "Moww");
-        let newChicken = new OldMacDonaldsFarm.Animal("chicken", "corn", "Gack");
-        let newDog = new OldMacDonaldsFarm.Animal("dog", "meat", "Woof");
-        let newPig = new OldMacDonaldsFarm.Animal("pig", "apple", "Oink");
+        let newCow = new L09_OldMacDonaldsFarm.Animal("cow", "gras", "Moww");
+        let newChicken = new L09_OldMacDonaldsFarm.Animal("chicken", "corn", "Gack");
+        let newDog = new L09_OldMacDonaldsFarm.Animal("dog", "meat", "Woof");
+        let newPig = new L09_OldMacDonaldsFarm.Animal("pig", "apple", "Oink");
         //Alerts
         cow.addEventListener("click", coweatandsing);
         function coweatandsing() {
             newCow.eat();
             newCow.sing();
-            grasstorage.innerHTML = String(OldMacDonaldsFarm.gras);
+            grasstorage.innerHTML = String(L09_OldMacDonaldsFarm.gras);
         }
         chicken.addEventListener("click", chickeneatandsing);
         function chickeneatandsing() {
             newChicken.eat();
             newChicken.sing();
-            cornstorage.innerHTML = String(OldMacDonaldsFarm.corn);
+            cornstorage.innerHTML = String(L09_OldMacDonaldsFarm.corn);
         }
         dog.addEventListener("click", dogeatandsing);
         function dogeatandsing() {
             newDog.eat();
             newDog.sing();
-            meatstorage.innerHTML = String(OldMacDonaldsFarm.meat);
+            meatstorage.innerHTML = String(L09_OldMacDonaldsFarm.meat);
         }
         pig.addEventListener("click", pigeatandsing);
         function pigeatandsing() {
             newPig.eat();
             newPig.sing();
-            applestorage.innerHTML = String(OldMacDonaldsFarm.apple);
+            applestorage.innerHTML = String(L09_OldMacDonaldsFarm.apple);
         }
     }
-})(OldMacDonaldsFarm || (OldMacDonaldsFarm = {}));
+})(L09_OldMacDonaldsFarm || (L09_OldMacDonaldsFarm = {}));
 //# sourceMappingURL=Main.js.map

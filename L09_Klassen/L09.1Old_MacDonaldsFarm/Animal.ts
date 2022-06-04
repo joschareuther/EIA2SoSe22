@@ -1,4 +1,4 @@
-namespace OldMacDonaldsFarm {
+namespace L09_OldMacDonaldsFarm {
 
     export class Animal {
         species: string;

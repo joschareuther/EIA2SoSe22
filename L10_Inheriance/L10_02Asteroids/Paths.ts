@@ -1,4 +1,4 @@
-namespace L09_Asteroids {
+namespace L10_Asteroids {
     export let asteroidPaths: Path2D[];
     export let ufoPath: Path2D[];
 

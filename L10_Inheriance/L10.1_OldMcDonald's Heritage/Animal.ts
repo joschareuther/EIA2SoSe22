@@ -1,4 +1,4 @@
-namespace OldMacDonaldsFarm {
+namespace L10_OldMacDonaldsFarm {
 
     export class Animal {
         species: string;
@@ -51,13 +51,17 @@ namespace OldMacDonaldsFarm {
             let text1: string = "Old McDonald had a farm\n EIA EIA Oh!\n And on that farm he had a " + this.species + " \n EIA EIA Oh!\n With a " + this.sound + " " + this.sound + " here! \n And a " + this.sound + " " + this.sound + " there!\n Here a " + this.sound + "! There a " + this.sound + " !\n  Everywhere " + this.sound + " " + this.sound + " !\n Old McDonald had a farm\n EIA EIA Oh!";
             songText.innerHTML = String(text1);
 
-            let actionText: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("action");
-            let text2: string = "Do special action with " + this.species; 
+            let actionText: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("actionText");
+            let text2: string = "Do special action with " + this.species;
             actionText.innerHTML = String(text2);
         }
 
-        doSpecialAction(): void {
+        draw(): void {
+            //console.log("Animal draw")
+        }
 
+        doSpecialAction(): void {
+            //console.log("Animal doSpecialAction")
         }
     }
 }
