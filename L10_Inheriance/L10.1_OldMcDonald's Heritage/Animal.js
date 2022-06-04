@@ -45,8 +45,13 @@ var OldMacDonaldsFarm;
         }
         sing() {
             let songText = document.getElementById("songText");
-            let text = "Old McDonald had a farm\n EIA EIA Oh!\n And on that farm he had a " + this.species + " \n EIA EIA Oh!\n With a " + this.sound + " " + this.sound + " here! \n And a " + this.sound + " " + this.sound + " there!\n Here a " + this.sound + "! There a " + this.sound + " !\n  Everywhere " + this.sound + " " + this.sound + " !\n Old McDonald had a farm\n EIA EIA Oh!";
-            songText.innerHTML = String(text);
+            let text1 = "Old McDonald had a farm\n EIA EIA Oh!\n And on that farm he had a " + this.species + " \n EIA EIA Oh!\n With a " + this.sound + " " + this.sound + " here! \n And a " + this.sound + " " + this.sound + " there!\n Here a " + this.sound + "! There a " + this.sound + " !\n  Everywhere " + this.sound + " " + this.sound + " !\n Old McDonald had a farm\n EIA EIA Oh!";
+            songText.innerHTML = String(text1);
+            let actionText = document.getElementById("action");
+            let text2 = "Do special action with " + this.species;
+            actionText.innerHTML = String(text2);
+        }
+        doSpecialAction() {
         }
     }
     OldMacDonaldsFarm.Animal = Animal;

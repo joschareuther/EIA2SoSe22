@@ -120,3 +120,16 @@ h1{
     text-align: center;
     background-color: rgba(24, 144, 24, 0.748);
 }
+
+#action {
+    position: absolute;
+    color: rgb(75, 65, 51);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px;
+    top: 325px;
+    left: 400px;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(244, 166, 32);
+}
