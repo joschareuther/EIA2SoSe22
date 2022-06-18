@@ -1,8 +1,12 @@
 var L10_OldMacDonaldsFarm;
 (function (L10_OldMacDonaldsFarm) {
     class Dog extends L10_OldMacDonaldsFarm.Animal {
+        constructor(_amount) {
+            super("dog", "meat", 2, "Woof");
+        }
         doSpecialAction() {
             console.log("increase gras");
+            grasstorage.innerHTML = String(L10_OldMacDonaldsFarm.gras);
             L10_OldMacDonaldsFarm.gras += 2;
         }
         draw() {

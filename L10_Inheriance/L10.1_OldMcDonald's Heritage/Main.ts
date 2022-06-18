@@ -3,6 +3,8 @@ namespace L10_OldMacDonaldsFarm {
     export let corn: number;
     export let meat: number;
     export let apple: number;
+    export let animals: Animal[] = [];
+
 
     window.addEventListener("load", handleLoad);
 
@@ -14,13 +16,15 @@ namespace L10_OldMacDonaldsFarm {
         let dog: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("Dog");
         let pig: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("Pig");
 
-        let action: HTMLButtonElement = <HTMLButtonElement>document.getElementById("actionbutton");
-
-        //Futtervorrat
+        
+    //Futtervorrat
         let grasstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("grasstorage");
         let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
         let meatstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("meatstorage");
-        let applestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("applestorage");
+        let applestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("applestorage"); 
+
+        let action: HTMLButtonElement = <HTMLButtonElement>document.getElementById("actionbutton");
+
 
         gras = 12;
         grasstorage.innerHTML = String(gras);
@@ -33,17 +37,26 @@ namespace L10_OldMacDonaldsFarm {
 
 
         //neue Tiere
-        let newCow: Animal = new Cow("cow", "gras", 2, "Moww");
-        let newChicken: Animal = new Chicken("chicken", "corn", 1, "Gack");
-        let newDog: Animal = new Dog("dog", "meat", 2, "Woof");
-        let newPig: Animal = new Pig("pig", "apple", 4, "Oink");
+        let newCow: Animal = new Cow(2);
+        let newChicken: Animal = new Chicken(1);
+        let newDog: Animal = new Dog(2);
+        let newPig: Animal = new Pig(4);
+
+        animals.push(newCow);
+
+
+        for (let animal of animals) {
+            animal.draw();
+            animal.eat();
+            animal.sing();
+            animal.doSpecialAction();
+        }
 
         //Male Tiere
         newCow.draw();
         newChicken.draw();
         newDog.draw();
         newPig.draw();
-
 
         //Alerts
         cow.addEventListener("click", coweatandsing);
@@ -56,7 +69,6 @@ namespace L10_OldMacDonaldsFarm {
             function doSpecialAction(): void {
                 console.log("SpecialActionCow");
                 newCow.doSpecialAction();
-                corn += 2;
             }
         }
 
@@ -70,6 +82,8 @@ namespace L10_OldMacDonaldsFarm {
             function doSpecialAction(): void {
                 console.log("SpecialActionChicken");
                 newChicken.doSpecialAction();
+
+
             }
         }
 
@@ -77,7 +91,6 @@ namespace L10_OldMacDonaldsFarm {
         function dogeatandsing(): void {
             newDog.eat();
             newDog.sing();
-            meatstorage.innerHTML = String(meat);
 
             action.addEventListener("click", doSpecialAction);
             function doSpecialAction(): void {
@@ -96,6 +109,7 @@ namespace L10_OldMacDonaldsFarm {
             function doSpecialAction(): void {
                 console.log("SpecialActionPig");
                 newPig.doSpecialAction();
+                meat += 2;
             }
         }
     }

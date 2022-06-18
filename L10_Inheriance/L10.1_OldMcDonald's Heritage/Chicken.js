@@ -1,8 +1,12 @@
 var L10_OldMacDonaldsFarm;
 (function (L10_OldMacDonaldsFarm) {
     class Chicken extends L10_OldMacDonaldsFarm.Animal {
+        constructor(_amount) {
+            super("chicken", "corn", 1, "Gack");
+        }
         doSpecialAction() {
             console.log("increase apple");
+            applestorage.innerHTML = String(L10_OldMacDonaldsFarm.apple);
             L10_OldMacDonaldsFarm.apple += 2;
         }
         draw() {

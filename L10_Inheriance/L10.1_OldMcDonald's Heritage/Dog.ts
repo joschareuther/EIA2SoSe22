@@ -2,8 +2,14 @@ namespace L10_OldMacDonaldsFarm {
 
     export class Dog extends Animal {
 
+        constructor (_amount: number) {
+            super ("dog", "meat", 2, "Woof");
+        }
+
+
         doSpecialAction(): void {
             console.log("increase gras");
+            grasstorage.innerHTML = String(gras);
             gras += 2;
         }
 

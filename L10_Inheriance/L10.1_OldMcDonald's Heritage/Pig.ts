@@ -2,9 +2,16 @@ namespace L10_OldMacDonaldsFarm {
 
     export class Pig extends Animal {
 
+        constructor (_amount: number) {
+            super ("pig", "apple", 4, "Oink");
+        }
+
+
         doSpecialAction(): void {
             console.log("increase meat");
+            meatstorage.innerHTML = String(meat);
             meat += 2;
+
         }
 
         draw(): void {
