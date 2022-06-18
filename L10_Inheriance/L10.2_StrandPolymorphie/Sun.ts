@@ -1,10 +1,9 @@
 namespace L10_2StrandPolymorphie {
 
-    export class Sun {
-        position: Vector;
-        dy: number;
-
+    export class Sun extends Moveable {
+        
         constructor(_position: Vector, _dy: number) {
+            super();
             this.position = _position;
             this.dy = _dy;
         }

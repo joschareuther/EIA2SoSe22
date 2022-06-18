@@ -1,5 +1,5 @@
 namespace L10_2StrandPolymorphie {
-    //Bei mir funktioniert die Animation leider noch nicht!//
+
     //Generelle Variablen//
     export let golden: number = 0.62;
     export let height: number;

@@ -30,14 +30,16 @@ v = v + 1;
 console.log(v);
 
 
-let a = [7, true, "hello"]
-a[4] = [101, 102]
-console.log(a[2])
+// tslint:disable-next-line: typedef
+let a = [7, true, "hello"];
+a[4] = [101, 102];
+console.log(a[2]);
 
-let s = {"zahl": 7, "wahr": true, text: "Hallo"}
-s[4] = [101, 102]
+// tslint:disable-next-line: typedef
+let s = {"zahl": 7, "wahr": true, text: "Hallo"};
+s[4] = [101, 102];
 console.log(s);
-)
+
 
 
 interface MapStringToBoolean {
@@ -57,17 +59,19 @@ console.log(vector);
 interface Student {
     name: string;
     matrikel: number;
-    grades: [module: string]; : number;
+    // tslint:disable-next-line: typedef
+    grades: [module: string];
 }
 let students: Student[] = [];
 
-students.push({name: "Big Brain", matrikel: 123456, grades: {"EIA1": 1.3, "EIA2": 1.0}};
-students.push({name: "Biggie", matrikel: 123457, grades: {"EIA1": 1.5, "EIA2": 3.6}};
-students.push({name: "2Pac", matrikel: 123458, grades: {"EIA1": 3.3, "EIA2": 3.5}};
-console.log(students[2])
+students.push({name: "Big Brain", matrikel: 123456, grades: {"EIA1": 1.3, "EIA2": 1.0}});
+students.push({name: "Biggie", matrikel: 123457, grades: {"EIA1": 1.5, "EIA2": 3.6}});
+students.push({name: "2Pac", matrikel: 123458, grades: {"EIA1": 3.3, "EIA2": 3.5}});
+console.log(students[2]);
 
 
 let variable1: number = 7;
+// tslint:disable-next-line: typedef
 let variable2 = variable1;
 
 console.log(variable1);

@@ -1,10 +1,9 @@
 namespace L10_2StrandPolymorphie {
 
-    export class Bird {
-        position: Vector;
-        dx: number;
+    export class Bird extends Moveable {
 
         constructor(_position: Vector, _dx: number) {
+            super();
             this.position = _position;
             this.dx = _dx;
         }

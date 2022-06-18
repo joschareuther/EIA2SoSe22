@@ -1,13 +1,11 @@
 namespace L10_2StrandPolymorphie {
     
-    export class Cloud {
-        position: Vector;
+    export class Cloud extends Moveable {
         size: Vector;
-        dx: number;
 
-        constructor(_position: Vector, _size: Vector, _dx: number) {
+        constructor(_position: Vector, _dx: number) {
+            super();
             this.position = _position;
-            this.size = _size;
             this.dx = _dx;
         }
 

@@ -19,9 +19,11 @@ var Cows;
 let v = 1;
 v = v + 1;
 console.log(v);
+// tslint:disable-next-line: typedef
 let a = [7, true, "hello"];
 a[4] = [101, 102];
 console.log(a[2]);
+// tslint:disable-next-line: typedef
 let s = { "zahl": 7, "wahr": true, text: "Hallo" };
 s[4] = [101, 102];
 console.log(s);
@@ -35,6 +37,7 @@ students.push({ name: "Biggie", matrikel: 123457, grades: { "EIA1": 1.5, "EIA2":
 students.push({ name: "2Pac", matrikel: 123458, grades: { "EIA1": 3.3, "EIA2": 3.5 } });
 console.log(students[2]);
 let variable1 = 7;
+// tslint:disable-next-line: typedef
 let variable2 = variable1;
 console.log(variable1);
 console.log(variable2);

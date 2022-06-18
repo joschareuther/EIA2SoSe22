@@ -1,12 +1,10 @@
 namespace L10_2StrandPolymorphie {
 
-    export class Jellyfish {
-        position: Vector;
+    export class Jellyfish extends Moveable {
         color: string;
-        dx: number;
-
 
         constructor(_position: Vector, _color: string, _dx: number) {
+            super();
             this.position = _position;
             this.color = _color;
             this.dx = _dx;
