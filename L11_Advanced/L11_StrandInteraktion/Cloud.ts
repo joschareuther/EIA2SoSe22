@@ -1,4 +1,4 @@
-namespace L10_2StrandPolymorphie {
+namespace L11_2StrandInteraktion {
     
     export class Cloud extends Moveable {
         size: Vector;

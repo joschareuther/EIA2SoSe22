@@ -1,10 +1,9 @@
 var L10_2StrandPolymorphie;
 (function (L10_2StrandPolymorphie) {
-    class Jellyfish {
-        position;
+    class Jellyfish extends L10_2StrandPolymorphie.Moveable {
         color;
-        dx;
         constructor(_position, _color, _dx) {
+            super();
             this.position = _position;
             this.color = _color;
             this.dx = _dx;

@@ -22,11 +22,10 @@ var L03_CocktailBar;
             let price = Number(item.getAttribute("price"));
             order.innerHTML += item.name + " € " + price;
         }
-        function displayAmount(_event) {
-            let progress = document.querySelector("progress");
-            let amount = _event.target.value;
-            progress.value = parseFloat(amount);
-        }
+        //function displayAmount(_event: Event): void {
+        let progress = document.querySelector("progress");
+        let amount = _event.target.value;
+        progress.value = parseFloat(amount);
     }
 })(L03_CocktailBar || (L03_CocktailBar = {}));
 //# sourceMappingURL=Script.js.map

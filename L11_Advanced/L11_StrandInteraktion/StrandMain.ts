@@ -1,4 +1,4 @@
-namespace L10_2StrandPolymorphie {
+namespace L11_2StrandInteraktion {
 
     //Generelle Variablen//
     export let golden: number = 0.62;
@@ -7,6 +7,8 @@ namespace L10_2StrandPolymorphie {
     export let crc2: CanvasRenderingContext2D;
     let horizon: number;
     let imgData: ImageData;
+
+
 
     //Instanzierung der Objekte//
     let newSun: Sun = new Sun({ x: 250, y: getRandom(30, 100) }, 2);

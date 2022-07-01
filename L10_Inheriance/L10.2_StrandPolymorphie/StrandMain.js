@@ -1,6 +1,5 @@
 var L10_2StrandPolymorphie;
 (function (L10_2StrandPolymorphie) {
-    //Bei mir funktioniert die Animation leider noch nicht!//
     //Generelle Variablen//
     L10_2StrandPolymorphie.golden = 0.62;
     let horizon;

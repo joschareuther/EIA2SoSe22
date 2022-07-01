@@ -1,9 +1,8 @@
 var L10_2StrandPolymorphie;
 (function (L10_2StrandPolymorphie) {
-    class Bird {
-        position;
-        dx;
+    class Bird extends L10_2StrandPolymorphie.Moveable {
         constructor(_position, _dx) {
+            super();
             this.position = _position;
             this.dx = _dx;
         }

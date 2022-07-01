@@ -1,9 +1,8 @@
 var L10_2StrandPolymorphie;
 (function (L10_2StrandPolymorphie) {
-    class Sun {
-        position;
-        dy;
+    class Sun extends L10_2StrandPolymorphie.Moveable {
         constructor(_position, _dy) {
+            super();
             this.position = _position;
             this.dy = _dy;
         }
