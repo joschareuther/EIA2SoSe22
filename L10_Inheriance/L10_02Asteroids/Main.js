@@ -4,6 +4,7 @@ var L10_Asteroids;
     let asteroids = [];
     let projectile;
     L10_Asteroids.lineWidth = 5;
+    let moveables = [];
     function handleLoad(_event) {
         console.log("Asteroids starting");
         let canvas = document.querySelector("canvas");
@@ -17,6 +18,7 @@ var L10_Asteroids;
         console.log("Asteroids path: ", L10_Asteroids.asteroidPaths);
         createAsteroids(5);
         //createShip();
+        createUfo();
         canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);
         //canvas.addEventListener("keypress", handleKeypress);
@@ -62,6 +64,11 @@ var L10_Asteroids;
             let asteroid = new L10_Asteroids.Asteroid(1.0);
             asteroids.push(asteroid);
         }
+    }
+    function createUfo() {
+        console.log("Create Ufo");
+        let ufo = new Ufo();
+        moveables.push(ufo);
     }
     function update() {
         //console.log("Update");

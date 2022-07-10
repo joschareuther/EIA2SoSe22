@@ -7,6 +7,7 @@ namespace L10_Asteroids {
     let projectile: Projectile;
     export let lineWidth: number = 5;
 
+    let moveables: Moveable[] = [];
 
     function handleLoad(_event: Event): void {
         console.log("Asteroids starting");
@@ -24,6 +25,7 @@ namespace L10_Asteroids {
 
         createAsteroids(5);
         //createShip();
+        createUfo();
 
         canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);
@@ -77,6 +79,12 @@ namespace L10_Asteroids {
             let asteroid: Asteroid = new Asteroid(1.0);
             asteroids.push(asteroid);
         }
+    }
+
+    function createUfo(): void {
+        console.log("Create Ufo");
+        let ufo: Ufo = new Ufo();
+        moveables.push(ufo);
     }
 
     function update(): void {
