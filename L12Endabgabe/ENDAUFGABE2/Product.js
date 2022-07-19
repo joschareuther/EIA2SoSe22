@@ -10,7 +10,7 @@ var garden;
         buyProduct() {
             //console.log("geklicktes Produkt: " + this.name, this.price);
             garden.capital -= this.price;
-            //console.log("Kapital nach Kauf:" + capital + this.price);
+            //console.log("Kapital nach Kauf:" + capital);
             // show entry in div
             let capitalDiv = document.getElementById("capital");
             capitalDiv.innerHTML = "CAPITAL" + " " + garden.capital.toString() + "$";

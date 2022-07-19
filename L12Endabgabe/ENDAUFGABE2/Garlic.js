@@ -22,14 +22,6 @@ var garden;
                 //console.log(progressbar); 
             }, 20000);
             this.field.appendChild(this.image); // append all this stuff to the clicked field
-            /*  // this is where the plant needs water
-            setTimeout(function (): void {
-                let progressbar: HTMLDivElement = <HTMLDivElement>field.children[0]; // grab progressbar, so we can put a pic in it
-                let stausimage: HTMLImageElement = <HTMLImageElement>document.createElement("img"); // create new Image
-                stausimage.setAttribute("src", "Emojis/actions/sweat-droplets_1f4a6.png"); // define which image
-                progressbar.appendChild(stausimage);
-            },
-                       Math.random() * 20000); */
         }
         harvestPlant(_event) {
             console.log("you want to harvest the plant");

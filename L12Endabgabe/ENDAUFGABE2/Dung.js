@@ -3,8 +3,9 @@ var garden;
     class Dung extends garden.Product {
         name = "Dung";
         price = this.price;
-        dungPlant() {
-            //dungPlant - remove little pic from pbar
+        image;
+        dungPlant(parent) {
+            this.image = parent;
         }
     }
     garden.Dung = Dung;

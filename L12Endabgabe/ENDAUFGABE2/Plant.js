@@ -8,11 +8,6 @@ var garden;
         currentCareTime = 0;
         pestAttack;
         image;
-        sellPrice;
-        constructor(_name, _price, _sellPrice) {
-            super(_name, _price);
-            this.sellPrice = _sellPrice;
-        }
         die() {
             //emptyField
         }

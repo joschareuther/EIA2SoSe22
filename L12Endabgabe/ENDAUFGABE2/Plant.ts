@@ -9,13 +9,6 @@ namespace garden {
         currentCareTime: number = 0;
         pestAttack: boolean;
         image: HTMLImageElement;
-        sellPrice: number;
-
-        constructor(_name: string, _price: number, _sellPrice: number) {
-            super(_name, _price);
-            this.sellPrice = _sellPrice;
-
-        }
 
 
 

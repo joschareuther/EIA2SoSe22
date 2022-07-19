@@ -11,7 +11,7 @@ namespace garden {
         buyProduct(): void {
             //console.log("geklicktes Produkt: " + this.name, this.price);
             capital -= this.price;                 
-            //console.log("Kapital nach Kauf:" + capital + this.price);
+            //console.log("Kapital nach Kauf:" + capital);
             // show entry in div
             let capitalDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("capital");
             capitalDiv.innerHTML = "CAPITAL" + " " + capital.toString() + "$";

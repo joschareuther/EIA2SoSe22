@@ -3,11 +3,12 @@ namespace garden {
 
         name: string = "Dung";
         price: number = this.price;
+        image: HTMLImageElement;
 
 
 
-        dungPlant(): void {
-            //dungPlant - remove little pic from pbar
+        dungPlant(parent: HTMLImageElement): void {
+            this.image = parent;
         }
     }
 

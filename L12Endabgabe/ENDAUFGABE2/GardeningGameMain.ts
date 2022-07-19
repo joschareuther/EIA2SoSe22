@@ -1,9 +1,3 @@
-/* Gemüsegärtchen von:
-    Ronja Burger 269431 MKB2
-    Joscha Luka Reuther 269540 MKB2
-    nach anfänglicher Zusammenarbeit mit Vanja Rau und Aileen Akin
-*/
-
 namespace garden {
     //declare global counters
     export let capital: number;
@@ -15,6 +9,7 @@ namespace garden {
     export let potatoCounter: number;
     export let dungCounter: number;
     export let pesticideCounter: number;
+    export let clickedVegetable: string;
 
 
     window.addEventListener("load", hndLoad);
@@ -23,8 +18,7 @@ namespace garden {
         let start: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
         start.addEventListener("click", hideScreen1);
 
-
-        // EVENTLISTENER on vegetables in storage to get them planted
+        // EVENTLISTENER on items in storage
         let carrot1: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot1");
         let eggplant1: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant1");
         let garlic1: HTMLImageElement = <HTMLImageElement>document.getElementById("garlic1");
@@ -32,20 +26,17 @@ namespace garden {
         let potato1: HTMLImageElement = <HTMLImageElement>document.getElementById("potato1");
         let dung1: HTMLImageElement = <HTMLImageElement>document.getElementById("dung1");
         let pesticide1: HTMLImageElement = <HTMLImageElement>document.getElementById("pesticide1");
-        let water: HTMLImageElement = <HTMLImageElement>document.getElementById("water");
 
-        // call function to get the target.id of the clicked vegetable
+        //call function to Target plant
         carrot1.addEventListener("click", getTarget);
         eggplant1.addEventListener("click", getTarget);
         garlic1.addEventListener("click", getTarget);
         salad1.addEventListener("click", getTarget);
         potato1.addEventListener("click", getTarget);
         dung1.addEventListener("click", getTarget);
-        pesticide1.addEventListener("click", getTarget);
-        water.addEventListener("click", getTarget);
+        pesticide1.addEventListener("click", getTarget);        
 
-
-        // EVENTLISTENER on vegetables in market to get an Evntlistener on
+        // EVENTLISTENER on items in market
         let carrot: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot");
         let eggplant: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant");
         let garlic: HTMLImageElement = <HTMLImageElement>document.getElementById("garlic");
@@ -62,7 +53,6 @@ namespace garden {
         potato.addEventListener("click", buyProduct);
         dung.addEventListener("click", buyProduct);
         pesticide.addEventListener("click", buyProduct);
-
 
         //set basic counters to zero
         capital = 0;
@@ -95,18 +85,16 @@ namespace garden {
             //create 9 fields in a row
             for (let index: number = 0; index < 9; index++) {                               //for loop with index = 9
                 let field: HTMLDivElement = <HTMLDivElement>document.createElement("div");  //declaration of field and create new div element for it
-                field.classList.add("field");                                               //add classnamne
-                field.addEventListener("click", fieldClick);                                // add eventListener
+                field.classList.add("field");   
+                field.addEventListener("click", fieldClick);
                 rows.appendChild(field);                                                    // parent field to row
                 let state: HTMLDivElement = <HTMLDivElement>document.createElement("div");  //declaration of state and create new div elemtn for it
-                state.classList.add("pbar");                                                //add classnamne
-                field.appendChild(state);                                                   //parent state to field
+                state.classList.add("pbar");                                                //add process bar to state
+                field.appendChild(state);                                                    //parent state to field
             }
         }
         readFormData();
     }
-
-
     function readFormData(): void {
         let formdata: FormData = new FormData(document.forms[0]);
         //console.log(formdata);
@@ -121,7 +109,7 @@ namespace garden {
                 //console.log("Kapital:" + capital);
             }
 
-            // show entry for capital in div
+            // show entry in div
             let capitalDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("capital");
             capitalDiv.innerHTML = "CAPITAL" + " " + capital.toString() + "$";
 
@@ -141,13 +129,10 @@ namespace garden {
             let pesticideStack: HTMLDivElement = <HTMLDivElement>document.getElementById("pesticideCounter");
             pesticideStack.innerHTML = pesticideCounter.toString();
 
-            // call function to change prices frequently
             changePrices();
             setInterval(changePrices, 10000);
         }
     }
-
-    // variables for different prices (buy)
     let carrotPrice: number;
     let eggplantPrice: number;
     let saladPrice: number;
@@ -156,14 +141,15 @@ namespace garden {
     let dungPrice: number;
     let pesticidePrice: number;
 
-    // variables for different prices (sell)
     export let carrotSellPrice: number;
     export let eggplantSellPrice: number;
     export let saladSellPrice: number;
     export let potatoSellPrice: number;
     export let garlicSellPrice: number;
 
+
     function changePrices(): void {
+        //console.log("change prices");
         carrotPrice = Math.floor(Math.random() * maxPrice + 1);
         eggplantPrice = Math.floor(Math.random() * maxPrice + 2);
         saladPrice = Math.floor(Math.random() * maxPrice + 3);
@@ -171,15 +157,17 @@ namespace garden {
         garlicPrice = Math.floor(Math.random() * maxPrice + 8);
         dungPrice = Math.floor(Math.random() * maxPrice + 4);
         pesticidePrice = Math.floor(Math.random() * maxPrice + 5);
-        //console.log("aktuelle Kaufpreise: " + carrotPrice + eggplantPrice + saladPrice + potatoPrice + garlicPrice + dungPrice + pesticidePrice);
+
         carrotSellPrice = Math.floor(Math.random() * maxPrice + 1 + 2);
         eggplantSellPrice = Math.floor(Math.random() * maxPrice + 2 + 2);
         saladSellPrice = Math.floor(Math.random() * maxPrice + 3 + 2);
         potatoSellPrice = Math.floor(Math.random() * maxPrice + 2 + 2);
         garlicSellPrice = Math.floor(Math.random() * maxPrice + 8 + 2);
+
+        //console.log("aktuelle Kaufpreise: " + carrotPrice + eggplantPrice + saladPrice + potatoPrice + garlicPrice + dungPrice + pesticidePrice);
         //console.log("aktuelle Verkaufspreise: " + carrotSellPrice + eggplantSellPrice + saladSellPrice + potatoSellPrice + garlicSellPrice);
 
-        // show prices (buy)
+        //buy prices
         let carrotBuy: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("carrotPrice");
         carrotBuy.innerHTML = carrotPrice.toString() + "$";
         let eggplantBuy: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("eggplantPrice");
@@ -195,7 +183,8 @@ namespace garden {
         let pesticideBuy: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("pesticidePrice");
         pesticideBuy.innerHTML = pesticidePrice.toString() + "$";
 
-        //show prices (sell)
+
+        //sell prices
         let carrotSell: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("carrotSellPrice");
         carrotSell.innerHTML = carrotSellPrice.toString() + "$";
         let eggplantSell: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("eggplantSellPrice");
@@ -206,16 +195,18 @@ namespace garden {
         potatoSell.innerHTML = potatoSellPrice.toString() + "$";
         let garlicSell: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("garlicSellPrice");
         garlicSell.innerHTML = garlicSellPrice.toString() + "$";
-    }
 
-    //function to buy vegetables
+
+
+    }
+    //functions to buy vegetables
     function buyProduct(_event: MouseEvent): void {
         let target: HTMLElement = <HTMLElement>_event.target;
         let id: string = target.id;
         if (capital > 0) {
             switch (id) {
                 case "carrot":
-                    let carrot: Plant = new Carrot("carrot", carrotPrice, carrotSellPrice);
+                    let carrot: Carrot = new Carrot("carrot", carrotPrice);
                     carrotCounter++;
                     carrot.buyProduct();
                     let carrotStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
@@ -223,7 +214,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "eggplant":
-                    let eggplant: Plant = new Eggplant("eggplant", eggplantPrice, eggplantSellPrice);
+                    let eggplant: Plant = new Eggplant("eggplant", eggplantPrice);
                     eggplantCounter++;
                     eggplant.buyProduct();
                     let eggplantStack: HTMLDivElement = <HTMLDivElement>document.getElementById("eggplantCounter");
@@ -231,7 +222,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "salad":
-                    let salad: Plant = new Salad("salad", saladPrice, saladSellPrice);
+                    let salad: Plant = new Salad("salad", saladPrice);
                     saladCounter++;
                     salad.buyProduct();
                     let saladStack: HTMLDivElement = <HTMLDivElement>document.getElementById("saladCounter");
@@ -239,7 +230,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "potato":
-                    let potato: Plant = new Potato("potato", potatoPrice, potatoSellPrice);
+                    let potato: Plant = new Potato("potato", potatoPrice);
                     potatoCounter++;
                     potato.buyProduct();
                     let potatoStack: HTMLDivElement = <HTMLDivElement>document.getElementById("potatoCounter");
@@ -247,7 +238,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "garlic":
-                    let garlic: Plant = new Garlic("garlic", garlicPrice, garlicSellPrice);
+                    let garlic: Plant = new Garlic("garlic", garlicPrice);
                     garlicCounter++;
                     garlic.buyProduct();
                     let garlicStack: HTMLDivElement = <HTMLDivElement>document.getElementById("garlicCounter");
@@ -273,27 +264,25 @@ namespace garden {
             }
         }
         else {
-            alert("you're broke!");
-            //Capital geht z.T. ins Minus, weil er Käufe zulässt, wenn capital > 1, aber die meisten Sachen kosten mehr als 1 und so geht es ins Minus
+            return;
         }
     }
 
-
-    // this function selects the id of the clicked vegetable in the storage and is supposed to remember it, 
-    // so that the id can be used when a field is clicked to create a new class of that vegetable
-    export let clickedVegetable: string; // must be global so that getTarget(), fieldClick() and grow() have access
     function getTarget(_event: MouseEvent): void {
         let target: HTMLElement = <HTMLElement>_event.target;
         clickedVegetable = target.id;
+        console.log("you've clicked on a", target.id);
+
     }
-    // this function checks out id an plant that plant on the clicked field and all that stuff around it ...
+
     function fieldClick(_event: MouseEvent): void { // is called every time a field is clicked
         let target: HTMLDivElement = <HTMLDivElement>_event.target;
+        let targetPlant: HTMLImageElement = <HTMLImageElement>_event.target;
         console.log("you've clicked on a field");
         switch (clickedVegetable) { // switch case loop checks out which value clickedVegetable has
             case "carrot1":
                 if (carrotCounter > 0) { // only works when we HAVE carrots
-                    let carrot: Carrot = new Carrot("carrot", carrotPrice, carrotSellPrice);
+                    let carrot: Carrot = new Carrot("carrot", carrotPrice);
                     console.log("you want to plant a carrot");
                     carrot.grow(target);
                     carrotCounter--; // devcrease counter bc we planted one carrot
@@ -303,7 +292,7 @@ namespace garden {
                 break;
             case "eggplant1":
                 if (eggplantCounter > 0) {
-                    let eggplant: Eggplant = new Eggplant("eggplant", eggplantPrice, eggplantSellPrice);
+                    let eggplant: Eggplant = new Eggplant("eggplant", eggplantPrice);
                     console.log("you want to plant an eggplant");
                     eggplant.grow(target);
                     eggplantCounter--;
@@ -313,7 +302,7 @@ namespace garden {
                 break;
             case "garlic1":
                 if (garlicCounter > 0) {
-                    let garlic: Garlic = new Garlic("garlic", garlicPrice, garlicSellPrice);
+                    let garlic: Garlic = new Garlic("garlic", garlicPrice);
                     console.log("you want to plant a carrot");
                     garlic.grow(target);
                     garlicCounter--;
@@ -323,7 +312,7 @@ namespace garden {
                 break;
             case "salad1":
                 if (saladCounter > 0) {
-                    let salad: Salad = new Salad("salad", saladPrice, saladSellPrice);
+                    let salad: Salad = new Salad("salad", saladPrice);
                     console.log("you want to plant a salad");
                     salad.grow(target);
                     saladCounter--;
@@ -333,7 +322,7 @@ namespace garden {
                 break;
             case "potato1":
                 if (potatoCounter > 0) {
-                    let potato: Potato = new Potato("potato", potatoPrice, potatoSellPrice);
+                    let potato: Potato = new Potato("potato", potatoPrice);
                     console.log("you want to plant a potato");
                     potato.grow(target);
                     potatoCounter--;
@@ -345,7 +334,7 @@ namespace garden {
                 if (dungCounter > 0) {
                     let dung: Dung = new Dung("dung", dungPrice);
                     console.log("you want to use dung");
-                    dung.dungPlant();
+                    dung.dungPlant(targetPlant);
                     dungCounter--;
                     let dungStack: HTMLDivElement = <HTMLDivElement>document.getElementById("dungCounter");
                     dungStack.innerHTML = dungCounter.toString();
@@ -361,19 +350,13 @@ namespace garden {
                     pesticideStack.innerHTML = pesticideCounter.toString();
                 }
                 break;
-           /*  case "water":
+            case "water":
                 console.log("you want to water the plant");
-                let image: HTMLImageElement = <HTMLImageElement>_event.target; // waterdrops
-                console.log(image);
-                let thisImage: HTMLDivElement = <HTMLDivElement>image.parentElement; // grab parent element
-                thisImage.removeChild(image); // remove waterdrops
-                break; */
+                //Plant.waterPlant();
+                break;
             default:
-                return;
+                alert("select an item!");
         }
     }
-
-
-
-
 }
+
