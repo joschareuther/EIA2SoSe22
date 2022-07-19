@@ -1,3 +1,9 @@
+/* Gemüsegärtchen von:
+    Joscha Luka Reuther 269540 MKB2
+    Ronja Burger 269431 MKB2
+    nach anfänglicher Zusammenarbeit mit Vanja Rau und Aileen Akin
+*/
+
 namespace garden {
     //declare global counters
     export let capital: number;
