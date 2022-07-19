@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Your gardening game</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='GardeningGame.css'>
+    <script src='Product.js'></script>
+    <script src='Dung.js'></script>
+    <script src='Pesticide.js'></script>
+    <script src='Plant.js'></script>
+    <script src='Carrot.js'></script>
+    <script src='Eggplant.js'></script>
+    <script src='Garlic.js'></script>
+    <script src='Salad.js'></script>
+    <script src='Potato.js'></script>
+    <script src='GardeningGameMain.js'></script>
+</head>
+
+<body>
+    <div id="Screen1">
+        <!--hide when clicked on the start button -->
+        <h1>Your Gardening Game</h1>
+        <p>Choose your start capital and the hight of the price variation!</p>
+        <form id="form">
+            <fieldset>
+                <legend>Variation of price</legend>
+                <input type="radio" name="Price" value="3" checked="true">
+                <label for="3">1 - 3$</label>
+                <input type="radio" name="Price" value="5">
+                <label for="5">1 - 5$</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Start capital</legend>
+                <span id="slider">10$
+                    <input type="range" name="Startcapital" min="10$" max="100$" step="10" value="20">100$
+                </span>
+            </fieldset>
+
+            <button type="button" id="start">START</button>
+        </form>
+    </div>
+
+    <div id="Screen2">
+        <!--hide until start button is clicked-->
+        <div id="deck">
+            <div id="garden">
+                <!-- each row contains 7 fields, they are created in the script -->
+                <div class="row" id="row0"></div>
+                <div class="row" id="row1"></div>
+                <div class="row" id="row2"></div>
+                <div class="row" id="row3"></div>
+                <div class="row" id="row4"></div>
+                <div class="row" id="row5"></div>
+                <div class="row" id="row6"></div>
+            </div>
+            <div id="info">
+                <div id="storage">
+                    <p>your storage</p>
+                    <div id="capital"></div>
+                    <!--plant in fields for drag & drop-->
+                    <div class="items"><img src="Emojis/veggies/carrot_1f955.png" id="carrot1" alt="carrot">
+                        <div class="stockcounter" id="carrotCounter"></div>
+                    </div>
+                    <div class="items"><img src="Emojis/veggies/Eggplant Emoji.png" id="eggplant1" alt="eggplant">
+                        <div class="stockcounter" id="eggplantCounter"></div>
+                    </div>
+                    <div class="items"><img src="Emojis/veggies/leafy-green_1f96c.png" id="salad1" alt="salad">
+                        <div class="stockcounter" id="saladCounter"></div>
+                    </div>
+                    <div class="items"><img src="Emojis/veggies/potato_1f954.png" id="potato1" alt="potato">
+                        <div class="stockcounter" id="potatoCounter"></div>
+                    </div>
+                    <div class="items"><img src="Emojis/veggies/garlic_1f9c4.png" id="garlic1" alt="garlic">
+                        <div class="stockcounter" id="garlicCounter"></div>
+                    </div>
+                    <div class="items">
+                        <img src="Emojis/actions/sparkles_2728.png" id="dung1" alt="dung" draggable="true">
+                        <div class="stockcounter" id="dungCounter"></div>
+                    </div>
+                    <div class="items">
+                        <img src="Emojis/actions/crossed-swords_2694-fe0f.png" id="pesticide1" alt="pesticide"
+                            draggable="true">
+                        <div class="stockcounter" id="pesticideCounter"></div>
+                    </div>
+                    <div class="items">
+                        <img src="Emojis/actions/sweat-droplets_1f4a6.png" id="water" alt="water">
+                        <div class="stockcounter" id="pesticideCounter">  ∞ </div>
+                    </div>
+                </div>
+                <div id="market">
+                    <p>marketplace</p>
+                    <table id="table1">
+                        <!-- headings -->
+                        <tr>
+                            <th>Seedling</th>
+                            <th>Buy</th>
+                            <th>Sell</th>
+                        </tr>
+                        <!-- Carrot -->
+                        <tr>
+                            <td> <img src="Emojis/veggies/carrot_1f955.png" id="carrot" alt=""></td>
+                            <td class="price" id="carrotPrice"></td>
+                            <td class="priceSell">2$</td>
+                        </tr>             
+                        <!-- Eggplant -->
+                        <tr>
+                            <td> <img src="Emojis/veggies/Eggplant Emoji.png" id="eggplant" alt=""></td>
+                            <td class="price" id="eggplantPrice">2$</td>
+                            <td class="priceSell">2$</td>
+                        </tr>          
+                        <!-- Salad -->
+                        <tr>
+                            <td> <img src="Emojis/veggies/leafy-green_1f96c.png" id="salad" alt=""></td>
+                            <td class="price" id="saladPrice">3$</td>
+                            <td class="priceSell">4$</td>
+                        </tr>
+                        <!-- Potato -->
+                        <tr>
+                            <td> <img src="Emojis/veggies/potato_1f954.png" id="potato" alt=""></td>
+                            <td class="price" id="potatoPrice">2$</td> <!-- Potato -->
+                            <td class="priceSell">3$</td>
+                        </tr>
+                        <!-- Garlic -->
+                        <tr>
+                            <td> <img src="Emojis/veggies/garlic_1f9c4.png" id="garlic" alt=""></td>
+                            <td class="price" id="garlicPrice">8$</td>
+                            <td class="priceSell">10$</td>
+                        </tr>
+                        <tr>
+                            <td> <img src="Emojis/actions/sparkles_2728.png" id="dung" alt=""></td>
+                            <td class="price" id="dungPrice">4$</td>
+                        </tr>
+                        <tr>
+                            <td> <img src="Emojis/actions/crossed-swords_2694-fe0f.png" id="pesticide" alt=""></td>
+                            <td class="price" id="pesticidePrice">5$</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

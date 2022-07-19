@@ -1,0 +1,162 @@
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+
+}
+
+#Screen1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 8em;
+    justify-content: center;
+    display: grid;
+}
+
+body {
+    background-image: url("BG.jpg");
+}
+
+#form {
+    background-color: rgba(142, 154, 142, 0.573);
+    border-radius: 0.5em;
+    width: 400px;
+    height: 200px;
+}
+
+fieldset {
+    border-radius: 0.5em;
+    width: 300px;
+    height: 50px;
+}
+
+#Screen2{
+    display: none;
+}
+#deck {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(0, 100, 0);
+    background-image: url("Gras.jpg");
+    height: auto;
+    width: auto;
+    padding: 10px;
+    font-family: "Georgia";
+}
+#garden {
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(139,69,19);
+    background-image: url("Erde.jpg");
+    height: 640px;
+    width: 900px;
+    margin-right: 10px;
+}
+.row {
+    display: flex;
+    height: 90px;
+    width: 900px;
+}
+.field {
+    margin: 5px;
+    height: 75px;
+    width: 90px;
+    border: 3px solid rgb(205,133,63);
+    background-color: rgba(205,133,63, 50%);
+    border-radius: 3px;
+}
+.pbar {
+    right: 0;
+    height: 35px;
+    width: 35px;
+    background-color: rgba(205,133,63, 80%);
+    border-radius: 3;
+}
+
+#info {
+    position: absolute;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: darkblue;
+    background-color: antiquewhite;
+    margin-left: 920px;
+    height: 620px;
+    width: 500px;
+    padding: 10px;
+}
+#storage {
+    position: relative;
+    border-style: solid;
+    border-color: rgb(139,90,43);
+    background-image: url("Store.jpg");
+    border-radius: 0.5em;
+    color: white;
+    height: 200px;
+    width: 490px;
+    margin-bottom: 10px;
+}
+#capital {
+    position: absolute;
+    top: -7px;
+    right: 110px;
+    width: 20px;
+    margin: 5px;
+    padding: 1px;
+    font-size: small;
+}
+.items {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid rgb(139,90,43);
+    border-radius: 5px;
+    position: relative;
+
+}
+.stockcounter {
+    /*in einer Reihe und die Counter rechts oben*/
+    height: 30px;
+    width: 30px;
+    background-color: rgb(139,90,43);
+    border-radius: 5px;
+    position: absolute;
+    top: 48px;
+    right: 2px;
+}
+#market {
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: rgb(139,125,107);
+    background-image: url("Storage.jpg");
+    height: 400px;
+    width: 490px;
+}
+#table1 {
+    margin: 10px;
+    width: 98%;
+}
+
+th {
+    text-align: left;
+    font-size: small;
+}
+td {
+    width: fit-content;
+}
+#table2 {
+    margin: 10px;
+    width: 70%;
+}
+p {
+    margin: 10px;
+}
+img {
+    height: 40px;
+    width: 40px;
+}
